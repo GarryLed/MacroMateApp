@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <!-- Main Nav -->
+        <DockPanel LastChildFill="True">
+            <StackPanel DockPanel.Dock="Left" Width="200" >
+                <!-- Nav links -->
+                <Button Content="Home" Height="50" Command="{Binding NavigationHomeCommand}"></Button>
+                <Button Content="Food Search" Height="50" Command="{Binding NavigationFoodSearchCommand}"></Button>
+                <Button Content="Daily Log" Height="50" Command="{Binding NavigationDailyLogCommand}"></Button>
+                <Button Content="Settings" Height="50" Command="{Binding NavigationSettingsCommand}"></Button>
+                
+            </StackPanel>
 
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        </DockPanel>
     </Grid>
 </Window>
