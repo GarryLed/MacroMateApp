@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MacroMateApp.Services
 {
-    internal class NutritionApiService
+    public class NutritionApiService
     {
     }
 }

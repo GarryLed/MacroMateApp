@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace MacroMateApp.Models
 {
-    internal class MealLog
+    public class MealLog
     {
+        // properties 
+        public DateTime Date {  get; set; }
+        public List<FoodItem> Foods { get; set; } 
+        public DailyTotals 
+            otals { get; set; }
     }
 }

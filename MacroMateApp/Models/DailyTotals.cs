@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MacroMateApp.Models
 {
-    internal class DailyTotals
+    public class DailyTotals
     {
     }
 }
