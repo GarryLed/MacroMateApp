@@ -5,21 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MacroMateApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MacroMate" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!--Nav bar --> 
+           
+        </Grid.RowDefinitions>
         <!-- Main Nav -->
-        <DockPanel LastChildFill="True">
-            <StackPanel DockPanel.Dock="Left" Width="200" >
-                <!-- Nav links -->
-                <Button Content="Home" Height="50" Command="{Binding NavigationHomeCommand}"></Button>
-                <Button Content="Food Search" Height="50" Command="{Binding NavigationFoodSearchCommand}"></Button>
-                <Button Content="Daily Log" Height="50" Command="{Binding NavigationDailyLogCommand}"></Button>
-                <Button Content="Nutrient Goals" Height="50" Command="{Binding NavigationGoalsCommand}"></Button>
-                <Button Content="Settings" Height="50" Command="{Binding NavigationSettingsCommand}"></Button>
+        <DockPanel Background="BlueViolet" Height="60">
+            <!--Logo --> 
+            <TextBlock Text="MacroMate" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" Margin="20, 0, 10, 0"></TextBlock>
+            
+             <!-- Nav links -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Home" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationHomeCommand}"></Button>
+                <Button Content="Food Search" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationFoodSearchCommand}"></Button>
+                <Button Content="Daily Log" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationDailyLogCommand}"></Button>
+                <Button Content="Nutrient Goals" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationGoalsCommand}"></Button>
+                <Button Content="Settings" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationSettingsCommand}"></Button>
                 
             </StackPanel>
 
-            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>
     </Grid>
 </Window>
