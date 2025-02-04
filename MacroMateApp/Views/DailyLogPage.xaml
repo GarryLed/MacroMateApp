@@ -1,4 +1,4 @@
-﻿<Page x:Class="MacroMateApp.Views.HomePage"
+﻿<Page x:Class="MacroMateApp.Views.DailyLogPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,15 +6,16 @@
       xmlns:local="clr-namespace:MacroMateApp.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomePage">
+      Title="DailyLogPage">
 
     <Grid Margin="20" Background="Aqua">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!-- -->
+            <RowDefinition Height="Auto"/>
+            <!-- -->
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0, 20, 0, 20">
-        <TextBlock Text="Welcome to Macro Mate" FontSize="24"></TextBlock>
-            
+            <TextBlock Text="Daily Log" FontSize="24"></TextBlock>
+
         </StackPanel>
     </Grid>
 </Page>

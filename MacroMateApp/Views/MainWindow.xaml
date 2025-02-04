@@ -8,11 +8,12 @@
         Title="MacroMate" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!--Nav bar --> 
-           
+            <RowDefinition Height="Auto"/> <!--Nav bar -->
+            <RowDefinition Height="*" /> <!-- main content -->
+
         </Grid.RowDefinitions>
         <!-- Main Nav -->
-        <DockPanel Background="BlueViolet" Height="60">
+        <DockPanel Background="BlueViolet" Height="60" Grid.Row="0">
             <!--Logo --> 
             <TextBlock Text="MacroMate" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" Margin="20, 0, 10, 0"></TextBlock>
             
@@ -25,8 +26,8 @@
                 <Button Content="Settings" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationSettingsCommand}"></Button>
                 
             </StackPanel>
-
-            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>
+
+         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1" />
     </Grid>
 </Window>

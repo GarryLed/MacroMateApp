@@ -7,12 +7,77 @@ using System.Collections.ObjectModel;
 using MacroMateApp.Models;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Windows.Input;
+using MacroMateApp.Views;
+using System.Windows;
+using System.Windows.Controls;
+using System.Runtime.CompilerServices;
 
 namespace MacroMateApp.ViewModels
 {
     public class MainViewModel 
     {
+
+        #region Navigation 
         
+        public ICommand NavigateToHomeCommand { get; }
+        public ICommand NavigateToFoodSearchCommand { get; }
+        public ICommand NavigateToDailyLogCommand { get; }
+        public ICommand NavigateToGoalsCommand { get; }
+        public ICommand NavigateToSettingsCommand { get; }
+
+
+
+        public MainViewModel() 
+        {
+            NavigateToHomeCommand = new RelayCommand(NavigateToHomePage);
+            NavigateToFoodSearchCommand = new RelayCommand(NavigateToFoodSearchPage);
+            NavigateToDailyLogCommand = new RelayCommand(NavigateToDailyLogPage);
+            NavigateToGoalsCommand = new RelayCommand(NavigateToGoalsPage);
+            NavigateToSettingsCommand = new RelayCommand(NavigateToSettingsPage);
+
+
+        }
+        // Nav methods 
+
+        // navigate to home page 
+        private void NavigateToHomePage()
+        {
+            NavigateToPage(new HomePage());
+        }
+
+        // navigate to food search page 
+        private void NavigateToFoodSearchPage()
+        {
+            NavigateToPage(new FoodSearchPage());
+        }
+
+        // navigate to daily log page 
+        private void NavigateToDailyLogPage()
+        {
+            NavigateToPage(new DailyLogPage());
+        }
+
+        // navigate to goals page 
+        private void NavigateToGoalsPage()
+        {
+            NavigateToPage(new GoalsPage());
+        }
+
+        // navigate to settings page
+        private void NavigateToSettingsPage()
+        {
+            NavigateToPage(new SettingsPage());
+        }
+        private void NavigateToPage(Page page)
+        {
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.MainFrame.NavigationService.Navigate(page);
+            }
+        }
+
+        #endregion
         // this class is bound to the MainWindow.xaml 
         // handling the data and the users selections 
 
