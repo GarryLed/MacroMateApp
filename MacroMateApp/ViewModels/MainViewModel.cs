@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using MacroMateApp.Models;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 namespace MacroMateApp.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel 
     {
         
         // this class is bound to the MainWindow.xaml 
@@ -28,11 +30,11 @@ namespace MacroMateApp.ViewModels
         public string SelectedMealCategory { get; set; } // wll be bound to wpf combo box item 
 
         // store the users daily goals 
-        public UserGoals Goals { get; set; }  
+        public UserGoals Goals { get; set; }  // Composition relationship 
 
 
         // store and track daily totals
-        public DailyTotals DailyTotals { get; set; }
+        public DailyTotals DailyTotals { get; set; } // composition relationship 
 
         
         // Methods 
