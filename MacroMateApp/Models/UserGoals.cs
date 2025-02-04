@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace MacroMateApp.Models
 {
-    internal class UserGoals
+    public class UserGoals
     {
+        // properties 
+        public double CalorieGoal { get; set; }
+        public double ProteinGoal { get; set; }
+        public double CarbGoal { get; set; }
+        public double FatGoal { get; set; }
     }
 }
