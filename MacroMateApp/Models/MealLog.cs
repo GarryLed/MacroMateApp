@@ -11,7 +11,6 @@ namespace MacroMateApp.Models
         // properties 
         public DateTime Date {  get; set; }
         public List<FoodItem> Foods { get; set; } 
-        public DailyTotals 
-            otals { get; set; }
+        public DailyTotals Totals { get; set; }
     }
 }

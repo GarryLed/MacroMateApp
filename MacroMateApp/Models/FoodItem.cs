@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace MacroMateApp.Models
 {
@@ -14,6 +15,6 @@ namespace MacroMateApp.Models
         public double Protein { get; set; }
         public double Carbs { get; set; }
         public double Fats { get; set; }
-        public string MealCategory { get; set; } // meal categories 
+        public string Category { get; set; } // meal categories 
     }
 }
