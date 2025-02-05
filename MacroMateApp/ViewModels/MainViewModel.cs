@@ -78,6 +78,10 @@ namespace MacroMateApp.ViewModels
             {
                 mainWindow.MainFrame.NavigationService.Navigate(page);
             }
+            else
+            {
+                MessageBox.Show("Error! Page not found");
+            }
         }
 
         #endregion
