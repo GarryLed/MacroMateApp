@@ -19,15 +19,16 @@
             
              <!-- Nav links -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Home" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationHomeCommand}"></Button>
-                <Button Content="Food Search" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationFoodSearchCommand}"></Button>
-                <Button Content="Daily Log" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationDailyLogCommand}"></Button>
-                <Button Content="Nutrient Goals" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationGoalsCommand}"></Button>
-                <Button Content="Settings" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigationSettingsCommand}"></Button>
+                <Button Content="Home" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToHomeCommand}"></Button>
+                <Button Content="Food Search" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToFoodSearchCommand}"></Button>
+                <Button Content="Daily Log" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToDailyLogCommand}"></Button>
+                <Button Content="Nutrient Goals" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToGoalsCommand}"></Button>
+                <Button Content="Settings" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToSettingsCommand}"></Button>
                 
             </StackPanel>
         </DockPanel>
 
          <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1" />
+        
     </Grid>
 </Window>

@@ -13,18 +13,20 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Runtime.CompilerServices;
 
+
+
 namespace MacroMateApp.ViewModels
 {
-    public class MainViewModel 
+    public class MainViewModel
     {
-
+        
         #region Navigation 
         
-        public ICommand NavigateToHomeCommand { get; }
-        public ICommand NavigateToFoodSearchCommand { get; }
-        public ICommand NavigateToDailyLogCommand { get; }
-        public ICommand NavigateToGoalsCommand { get; }
-        public ICommand NavigateToSettingsCommand { get; }
+        public ICommand NavigateToHomeCommand { get; private set; }
+        public ICommand NavigateToFoodSearchCommand { get; private set; }
+        public ICommand NavigateToDailyLogCommand { get; private set; }
+        public ICommand NavigateToGoalsCommand { get; private set; }
+        public ICommand NavigateToSettingsCommand { get; private set;  }
 
 
 
@@ -36,6 +38,7 @@ namespace MacroMateApp.ViewModels
             NavigateToGoalsCommand = new RelayCommand(NavigateToGoalsPage);
             NavigateToSettingsCommand = new RelayCommand(NavigateToSettingsPage);
 
+            
 
         }
         // Nav methods 

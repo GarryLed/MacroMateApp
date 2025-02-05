@@ -11,6 +11,8 @@ namespace MacroMateApp.ViewModels
     // this will replace having to use event handlers in wpf 
     public class RelayCommand : ICommand // implement ICommand interface to allow buttons to bind to commands in the viewModel 
     {
+
+        
         // properties 
         private readonly Action _execute; // method runs when the command is executed 
         private readonly Func<bool> _canExecute;
@@ -26,5 +28,9 @@ namespace MacroMateApp.ViewModels
         public bool CanExecute(object parameter) => _canExecute == null || _canExecute();
         public void Execute(object parameter) => _execute();
         public event EventHandler CanExecuteChanged;
+    
+
+        
+
     }
 }

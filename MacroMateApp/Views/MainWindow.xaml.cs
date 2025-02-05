@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using MacroMateApp.ViewModels;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,9 +20,11 @@ namespace MacroMateApp.Views
         public MainWindow()
         {
             InitializeComponent();
-            // making the HomePage the default page 
-            MainFrame.NavigationService.Navigate(new HomePage());
-           // DataContext = new MainViewModel();
+            
+            DataContext = new MainViewModel();
+          
         }
+
+       
     }
 }
