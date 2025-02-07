@@ -10,6 +10,8 @@ namespace MacroMateApp.ViewModels
     // class will handle button actions  in wpf 
     // this will replace having to use event handlers for buttons in wpf 
     // goal: bind the buttons command to relay command (separation of concerns) 
+
+    // Generic RelayCommand for commands without parameters 
     public class RelayCommand : ICommand // implement ICommand interface to allow buttons to bind to commands in the viewModel 
     {
 
@@ -42,5 +44,26 @@ namespace MacroMateApp.ViewModels
 
         
 
+    } // end of RelayCommand class for commands witout arguments 
+
+    public class RelayCommand<T> : ICommand
+    {
+        private readonly Action<T> _execute;
+        private readonly Func<T, bool> _canExecute;
+
+        public RelayCommand(Action<T> execute, Func<T, bool> canExecute = null)
+        {
+            _execute = execute ?? throw new ArgumentNullException( nameof(execute));
+            _canExecute = canExecute;
+        }
+
+        public bool CanExecute(object parameter) => _canExecute == null || _canExecute((T)parameter);
+        public void Execute(object parameter) => _canExecute((T)(parameter));
+
+        public event EventHandler CanExecutedChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
     }
 }

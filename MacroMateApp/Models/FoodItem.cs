@@ -11,10 +11,10 @@ namespace MacroMateApp.Models
     {
         // properties 
         public string Name { get; set; } // Food Item name 
-        public double Calories { get; set; }
-        public double Protein { get; set; }
-        public double Carbs { get; set; }
-        public double Fats { get; set; }
-        public string Category { get; set; } // meal categories 
+        public int Calories { get; set; }
+        public int Protein { get; set; }
+        public int Carbs { get; set; }
+        public int Fats { get; set; }
+       
     }
 }

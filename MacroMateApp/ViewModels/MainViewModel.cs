@@ -123,27 +123,7 @@ namespace MacroMateApp.ViewModels
         }
 
 
-        // adding food to the log method 
-        private void LogFoodToCategory(FoodItem food)
-        {
-            food.Category = SelectedMealCategory; // assign food category to the uses selected food category 
-
-            // check which category was selected by the user 
-            switch (SelectedMealCategory)
-            {
-                case "Breakfast":
-                        BreakfastLog.Add(food); // log food to breakfast category 
-                    break;
-                case "Lunch":
-                    LunchLog.Add(food); // log food to breakfast category 
-                    break;
-                case "Dinner":
-                    DinnerLog.Add(food); // log food to breakfast category 
-                    break;
-                case "Snacks":
-                    SnacksLog.Add(food); // log food to breakfast category 
-                    break;
-            } // end of switch statement 
-        }
+        
+        
     }
 }
