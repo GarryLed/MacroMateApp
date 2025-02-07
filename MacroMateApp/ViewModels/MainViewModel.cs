@@ -32,14 +32,12 @@ namespace MacroMateApp.ViewModels
 
         public MainViewModel() 
         {
-            NavigateToHomeCommand = new RelayCommand(NavigateToHomePage);
+            // create a new instance of the RelayCommand class and pass in "nav method as parameters 
+            NavigateToHomeCommand = new RelayCommand(NavigateToHomePage); // no canExecute is provided so this buttion is always enabled (same for the buttons below)
             NavigateToFoodSearchCommand = new RelayCommand(NavigateToFoodSearchPage);
             NavigateToDailyLogCommand = new RelayCommand(NavigateToDailyLogPage);
             NavigateToGoalsCommand = new RelayCommand(NavigateToGoalsPage);
             NavigateToSettingsCommand = new RelayCommand(NavigateToSettingsPage);
-
-            
-
         }
         // Nav methods 
 
@@ -72,10 +70,14 @@ namespace MacroMateApp.ViewModels
         {
             NavigateToPage(new SettingsPage());
         }
+
+        // 
         private void NavigateToPage(Page page)
         {
+            // checks if the current window is the mainWindow
             if (Application.Current.MainWindow is MainWindow mainWindow)
             {
+                // 
                 mainWindow.MainFrame.NavigationService.Navigate(page);
             }
             else
