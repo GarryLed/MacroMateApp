@@ -43,7 +43,7 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                        <Button Content="Delete" Command="{Binding DataContext.DeleteItemcommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}">
+                                        <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}">
                                             
                                         </Button>
                                     </DataTemplate>
@@ -69,7 +69,7 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                        <Button Content="Delete" Command="{Binding DataContext.DeleteItemcommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}">
+                                        <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}">
 
                                         </Button>
                                     </DataTemplate>
@@ -95,10 +95,11 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                        <Button Content="Delete" Command="{Binding DataContext.DeleteItemcommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}">
+                                        <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}">
 
                                         </Button>
                                     </DataTemplate>
+
                                 </GridViewColumn.CellTemplate>
 
                             </GridViewColumn>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace MacroMateApp.ViewModels
     // this will replace having to use event handlers for buttons in wpf 
     // goal: bind the buttons command to relay command (separation of concerns) 
 
-    // Generic RelayCommand for commands without parameters 
+    // Non Generic RelayCommand for commands without parameters 
     public class RelayCommand : ICommand // implement ICommand interface to allow buttons to bind to commands in the viewModel 
     {
 
@@ -27,11 +28,16 @@ namespace MacroMateApp.ViewModels
         }
 
         // methods 
-        public bool CanExecute(object parameter) => _canExecute == null || _canExecute(); // _canExecute == null determines if the command can run (if no condition 
+        public bool CanExecute(object? parameter) // nullable parameter 
+        {
+           return _canExecute == null || _canExecute();
+
+        }
+        // _canExecute == null determines if the command can run (if no condition 
         // is provided, the command is always enabled. _canExecute() => if condition exists, it eill call the function and return its result 
         
         // returns the assigned action when the button is clicked 
-        public void Execute(object parameter)
+        public void Execute(object? parameter)
         {
             _execute();
         }
@@ -39,7 +45,11 @@ namespace MacroMateApp.ViewModels
         // can execute changed event: 
         // notifies the UI dynimically when the result of CanExecute() changes 
         // WPF will listen to this event to enable or disable the buttons dynimically 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove {  CommandManager.RequerySuggested -= value; }
+        }
     
 
         
@@ -57,10 +67,20 @@ namespace MacroMateApp.ViewModels
             _canExecute = canExecute;
         }
 
-        public bool CanExecute(object parameter) => _canExecute == null || _canExecute((T)parameter);
-        public void Execute(object parameter) => _canExecute((T)(parameter));
+        public bool CanExecute(object? parameter)
+        {
 
-        public event EventHandler CanExecutedChanged
+           return  _canExecute == null || (parameter is T value && _canExecute(value));
+        }
+        public void Execute(object? parameter)
+        {
+            if (parameter is T value)
+            {
+                _execute(value);
+            }
+        }
+
+        public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
