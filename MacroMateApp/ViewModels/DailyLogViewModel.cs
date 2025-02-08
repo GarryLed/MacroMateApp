@@ -20,6 +20,8 @@ namespace MacroMateApp.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+
         // properties for storing food items in relevant categories 
         public ObservableCollection<FoodItem> BreakfastLog { get; set; } = new();
         public ObservableCollection<FoodItem> LunchLog { get; set; } = new();

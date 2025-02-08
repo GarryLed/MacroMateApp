@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MacroMateApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace MacroMateApp.Views
         public DailyLogPage()
         {
             InitializeComponent();
+            DataContext = new DailyLogViewModel(); // Bind the DailyLogViewModel to the page 
         }
     }
 }
