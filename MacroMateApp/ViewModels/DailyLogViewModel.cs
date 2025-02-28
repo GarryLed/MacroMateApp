@@ -35,6 +35,8 @@ namespace MacroMateApp.ViewModels
 
 
         // Using ICommand for button event handling 
+
+        public ICommand AddItemCommand { get; }
         public ICommand DeleteItemCommand { get; }
         public ICommand ClearDailyLogCommand { get; }
 
@@ -45,6 +47,13 @@ namespace MacroMateApp.ViewModels
         // Use DailyTotals class to store daily totals: 
 
 
+        // Temporary properties for user input
+        public string FoodName { get; set; } = "";
+        public int Calories { get; set; }
+        public int Protein { get; set; }
+        public int Carbs { get; set; }
+        public int Fats { get; set; }
+        public string SelectedMeal { get; set; } = "Breakfast"; // Default selection
 
 
 
@@ -84,6 +93,10 @@ namespace MacroMateApp.ViewModels
             UpdateDailyTotals();
 
             // Binding commands for deleting food items 
+
+            AddItemCommand = new RelayCommand(AddFoodItem);
+
+
             DeleteItemCommand = new RelayCommand<FoodItem>(DeleteItem);
 
             ClearDailyLogCommand = new RelayCommand(ClearDailyLog);
@@ -93,7 +106,38 @@ namespace MacroMateApp.ViewModels
         // methods 
 
         // Add food item 
+        private void AddFoodItem()
+        {
+            //if (string.IsNullOrWhiteSpace(FoodName)) return;
 
+            var newFoodItem = new FoodItem
+            {
+                Name = FoodName,
+                Calories = Calories,
+                Protein = Protein,
+                Carbs = Carbs,
+                Fats = Fats
+            };
+
+            switch (SelectedMeal)
+            {
+                case "Breakfast":
+                    BreakfastLog.Add(newFoodItem);
+                    break;
+                case "Lunch":
+                    LunchLog.Add(newFoodItem);
+                    break;
+                case "Dinner":
+                    DinnerLog.Add(newFoodItem);
+                    break;
+                case "Snacks":
+                    SnacksLog.Add(newFoodItem);
+                    break;
+            }
+
+            UpdateDailyTotals();
+
+        }
 
 
         // Update food item 
