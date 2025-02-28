@@ -21,12 +21,17 @@ namespace MacroMateApp.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        // creating a new instance of the DailyTotals class 
+        public DailyTotals DailyTotals { get; set; } = new();
+
 
         // properties for storing food items in relevant categories 
         public ObservableCollection<FoodItem> BreakfastLog { get; set; } = new();
         public ObservableCollection<FoodItem> LunchLog { get; set; } = new();
         public ObservableCollection<FoodItem> DinnerLog { get; set; } = new();
         public ObservableCollection<FoodItem> SnacksLog { get; set; } = new();
+
+       
 
         // Using ICommand for button event handling 
         public ICommand DeleteItemCommand { get; }
@@ -36,23 +41,12 @@ namespace MacroMateApp.ViewModels
 
         // calculate total calories 
 
+        // Use DailyTotals class to store daily totals: 
 
-        public int TotalCalories => BreakfastLog.Sum(t => t.Calories) + LunchLog.Sum(t => t.Calories) 
-                                    + DinnerLog.Sum(t => t.Calories) + SnacksLog.Sum(t => t.Calories);
+            
 
-        // calculate total protein 
-        public int TotalProtein => BreakfastLog.Sum(t =>t.Protein) + LunchLog.Sum(t => t.Protein)
-                                    + DinnerLog.Sum(t => t.Protein) + SnacksLog.Sum(t => t.Protein);
-
-        // calculate total carbs 
-        public int TotalCarbs => BreakfastLog.Sum(t => t.Carbs) + LunchLog.Sum(t => t.Carbs)
-                                    + DinnerLog.Sum(t => t.Carbs) + SnacksLog.Sum(t => t.Carbs);
-
-        // calculate total fats 
-        public int TotalFats => BreakfastLog.Sum(t => t.Fats) + LunchLog.Sum (t => t.Fats)
-                                + DinnerLog.Sum(t => t.Fats) + SnacksLog.Sum(t => t.Fats);
-                                                  
-
+       
+                                              
         // constructor 
         public DailyLogViewModel()
         {
@@ -85,10 +79,14 @@ namespace MacroMateApp.ViewModels
                 new FoodItem { Name = "Greek Yogurt", Calories = 100, Protein = 10, Carbs = 6, Fats = 0 },
                 new FoodItem { Name = "Almonds", Calories = 170, Protein = 6, Carbs = 6, Fats = 15 }
             };
-                    // Binding commands for deleting food items 
-                    DeleteItemCommand = new RelayCommand<FoodItem>(DeleteItem);
 
-                    ClearDailyLogCommand = new RelayCommand(ClearDailyLog);
+
+            UpdateDailyTotals();
+
+            // Binding commands for deleting food items 
+            DeleteItemCommand = new RelayCommand<FoodItem>(DeleteItem);
+
+            ClearDailyLogCommand = new RelayCommand(ClearDailyLog);
 
         }
 
@@ -101,6 +99,30 @@ namespace MacroMateApp.ViewModels
         // Update food item 
 
 
+        // Update Daily totals 
+        private void UpdateDailyTotals()
+        {
+            // Update Total calories in the daily totals class 
+            DailyTotals.TotalCalories = BreakfastLog.Sum(t => t.Calories) + LunchLog.Sum(t => t.Calories)
+                                       + DinnerLog.Sum(t => t.Calories) + SnacksLog.Sum(t => t.Calories);
+
+            // calculate total protein 
+            DailyTotals.TotalProtein = BreakfastLog.Sum(t => t.Protein) + LunchLog.Sum(t => t.Protein)
+                                        + DinnerLog.Sum(t => t.Protein) + SnacksLog.Sum(t => t.Protein);
+
+            // calculate total carbs 
+            DailyTotals.TotalCarbs = BreakfastLog.Sum(t => t.Carbs) + LunchLog.Sum(t => t.Carbs)
+                                        + DinnerLog.Sum(t => t.Carbs) + SnacksLog.Sum(t => t.Carbs);
+
+            // calculate total fats 
+            DailyTotals.TotalFats = BreakfastLog.Sum(t => t.Fats) + LunchLog.Sum(t => t.Fats)
+                                    + DinnerLog.Sum(t => t.Fats) + SnacksLog.Sum(t => t.Fats);
+
+            // update the UI 
+            OnPropertyChanged(nameof(DailyTotals));
+        }
+
+
         // delete a food item 
         private void DeleteItem(FoodItem item)
         {
@@ -110,10 +132,7 @@ namespace MacroMateApp.ViewModels
             SnacksLog.Remove(item); // removes item from SnacksLog 
 
             // notify the ui to update total 
-            OnPropertyChanged(nameof(TotalCalories)); 
-            OnPropertyChanged(nameof(TotalProtein));
-            OnPropertyChanged(nameof(TotalCarbs));
-            OnPropertyChanged(nameof(TotalFats));
+            UpdateDailyTotals();
         }
 
         // clear the daily food log 
@@ -126,10 +145,7 @@ namespace MacroMateApp.ViewModels
             SnacksLog.Clear();
 
             // notify the ui to update total 
-            OnPropertyChanged(nameof(TotalCalories));
-            OnPropertyChanged(nameof(TotalProtein));
-            OnPropertyChanged(nameof(TotalCarbs));
-            OnPropertyChanged(nameof(TotalFats));
+            UpdateDailyTotals();
         }
     }
 }

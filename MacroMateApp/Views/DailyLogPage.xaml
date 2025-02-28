@@ -144,16 +144,16 @@
             <TextBlock Text="Daily Totals" FontSize="18" FontWeight="Bold"/>
 
             <TextBlock Text="Total Calories:" Margin="0,5,0,0"/>
-            <TextBlock Text="{Binding TotalCalories}" Margin="5"/>
+            <TextBlock Text="{Binding DailyTotals.TotalCalories}" Margin="5"/>
 
             <TextBlock Text="Protein (g)" Margin="0,5,0,0"/>
-            <TextBlock Text="{Binding TotalProtein}" Margin="5"/>
+            <TextBlock Text="{Binding DailyTotals.TotalProtein}" Margin="5"/>
 
             <TextBlock Text="Carbs (g)" Margin="0,5,0,0"/>
-            <TextBlock Text="{Binding TotalCarbs}" Margin="5"/>
+            <TextBlock Text="{Binding DailyTotals.TotalCarbs}" Margin="5"/>
 
             <TextBlock Text="Fats (g)" Margin="0,5,0,0"/>
-            <TextBlock Text="{Binding TotalFats}" Margin="5"/>
+            <TextBlock Text="{Binding DailyTotals.TotalFats}" Margin="5"/>
         </StackPanel>
 
 

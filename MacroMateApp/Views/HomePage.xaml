@@ -44,8 +44,24 @@
             <ProgressBar Minimum="0" Maximum="{Binding UserGoals.FatGoal}" 
                          Value="{Binding DailyTotals.Fats}" Height="20"/>
         </StackPanel>
-        
-       
+
+        <!-- Display Daily totals -->
+
+        <StackPanel Grid.Row="3" Margin="10">
+            <TextBlock Text="Daily Totals" FontSize="18" FontWeight="Bold"/>
+
+            <TextBlock Text="Total Calories:" Margin="0,5,0,0"/>
+            <TextBlock Text="{Binding DailyTotals.TotalCalories}" Margin="5"/>
+
+            <TextBlock Text="Protein (g)" Margin="0,5,0,0"/>
+            <TextBlock Text="{Binding DailyTotals.TotalProtein}" Margin="5"/>
+
+            <TextBlock Text="Carbs (g)" Margin="0,5,0,0"/>
+            <TextBlock Text="{Binding DailyTotals.TotalCarbs}" Margin="5"/>
+
+            <TextBlock Text="Fats (g)" Margin="0,5,0,0"/>
+            <TextBlock Text="{Binding DailyTotals.TotalFats}" Margin="5"/>
+        </StackPanel>
 
         <!-- Buttons for quick navigation -->
         <StackPanel Grid.Row="3" HorizontalAlignment="Center" Margin="10">
