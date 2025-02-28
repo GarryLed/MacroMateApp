@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MacroMateApp.ViewModels;
 
 namespace MacroMateApp.Views
 {
@@ -23,6 +24,7 @@ namespace MacroMateApp.Views
         public GoalsPage()
         {
             InitializeComponent();
+            DataContext = new UserGoalsViewModel();
         }
     }
 }
