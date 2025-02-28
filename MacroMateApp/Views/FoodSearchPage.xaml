@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FoodSearchPage">
 
-    <Grid Margin="20" Background="Aqua">
+    <Grid Margin="20" Background="Beige">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <!-- -->
