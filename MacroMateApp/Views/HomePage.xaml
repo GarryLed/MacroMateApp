@@ -14,6 +14,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
         <!-- Welcome Message -->
@@ -30,19 +31,19 @@
 
             <TextBlock Text="Calories" Margin="0,5,0,0"/>
             <ProgressBar Minimum="0" Maximum="{Binding UserGoals.CalorieGoal}" 
-                         Value="{Binding DailyTotals.Calories}" Height="20"/>
+                         Value="{Binding DailyTotals.TotalCalories}" Height="20"/>
 
             <TextBlock Text="Protein (g)" Margin="0,5,0,0"/>
             <ProgressBar Minimum="0" Maximum="{Binding UserGoals.ProteinGoal}" 
-                         Value="{Binding DailyTotals.Protein}" Height="20"/>
+                         Value="{Binding DailyTotals.TotalProtein}" Height="20"/>
 
             <TextBlock Text="Carbs (g)" Margin="0,5,0,0"/>
             <ProgressBar Minimum="0" Maximum="{Binding UserGoals.CarbGoal}" 
-                         Value="{Binding DailyTotals.Carbs}" Height="20"/>
+                         Value="{Binding DailyTotals.TotalCarbs}" Height="20"/>
 
             <TextBlock Text="Fats (g)" Margin="0,5,0,0"/>
             <ProgressBar Minimum="0" Maximum="{Binding UserGoals.FatGoal}" 
-                         Value="{Binding DailyTotals.Fats}" Height="20"/>
+                         Value="{Binding DailyTotals.TotalFats}" Height="20"/>
         </StackPanel>
 
         <!-- Display Daily totals -->

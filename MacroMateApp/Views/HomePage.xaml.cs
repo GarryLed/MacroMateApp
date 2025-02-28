@@ -23,6 +23,8 @@ namespace MacroMateApp.Views
         public HomePage()
         {
             InitializeComponent();
+            // uisng the Shared view model to share data to various pages 
+            DataContext = App.SharedDailyLogViewModel;
         }
     }
 }

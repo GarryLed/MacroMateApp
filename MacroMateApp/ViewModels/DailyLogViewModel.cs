@@ -31,7 +31,8 @@ namespace MacroMateApp.ViewModels
         public ObservableCollection<FoodItem> DinnerLog { get; set; } = new();
         public ObservableCollection<FoodItem> SnacksLog { get; set; } = new();
 
-       
+        
+
 
         // Using ICommand for button event handling 
         public ICommand DeleteItemCommand { get; }
@@ -43,10 +44,10 @@ namespace MacroMateApp.ViewModels
 
         // Use DailyTotals class to store daily totals: 
 
-            
 
-       
-                                              
+
+
+
         // constructor 
         public DailyLogViewModel()
         {
@@ -66,20 +67,19 @@ namespace MacroMateApp.ViewModels
                 new FoodItem { Name = "Brown Rice", Calories = 216, Protein = 5, Carbs = 45, Fats = 2 }
             };
 
-                    // Test data for Dinner
-                    DinnerLog = new ObservableCollection<FoodItem>
+            // Test data for Dinner
+            DinnerLog = new ObservableCollection<FoodItem>
             {
                 new FoodItem { Name = "Salmon", Calories = 250, Protein = 22, Carbs = 0, Fats = 15 },
                 new FoodItem { Name = "Steamed Broccoli", Calories = 55, Protein = 4, Carbs = 11, Fats = 0 }
             };
 
-                    // Test data for Snacks
-                    SnacksLog = new ObservableCollection<FoodItem>
+            // Test data for Snacks
+            SnacksLog = new ObservableCollection<FoodItem>
             {
                 new FoodItem { Name = "Greek Yogurt", Calories = 100, Protein = 10, Carbs = 6, Fats = 0 },
                 new FoodItem { Name = "Almonds", Calories = 170, Protein = 6, Carbs = 6, Fats = 15 }
             };
-
 
             UpdateDailyTotals();
 

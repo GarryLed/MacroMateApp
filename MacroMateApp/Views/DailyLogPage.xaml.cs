@@ -24,7 +24,8 @@ namespace MacroMateApp.Views
         public DailyLogPage()
         {
             InitializeComponent();
-            DataContext = new DailyLogViewModel(); // Bind the DailyLogViewModel to the page 
+          //DataContext = new DailyLogViewModel(); // Bind the DailyLogViewModel to the page 
+           DataContext = App.SharedDailyLogViewModel;
         }
     }
 }
