@@ -44,6 +44,8 @@
             <ProgressBar Minimum="0" Maximum="{Binding UserGoals.FatGoal}" 
                          Value="{Binding DailyTotals.Fats}" Height="20"/>
         </StackPanel>
+        
+       
 
         <!-- Buttons for quick navigation -->
         <StackPanel Grid.Row="3" HorizontalAlignment="Center" Margin="10">

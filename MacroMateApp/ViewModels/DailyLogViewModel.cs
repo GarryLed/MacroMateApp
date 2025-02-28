@@ -35,6 +35,8 @@ namespace MacroMateApp.ViewModels
         // properties for calculating daily totals 
 
         // calculate total calories 
+
+
         public int TotalCalories => BreakfastLog.Sum(t => t.Calories) + LunchLog.Sum(t => t.Calories) 
                                     + DinnerLog.Sum(t => t.Calories) + SnacksLog.Sum(t => t.Calories);
 
@@ -54,6 +56,7 @@ namespace MacroMateApp.ViewModels
         // constructor 
         public DailyLogViewModel()
         {
+
             // Test data for Breakfast 
             BreakfastLog = new ObservableCollection<FoodItem>
             {
@@ -90,6 +93,14 @@ namespace MacroMateApp.ViewModels
         }
 
         // methods 
+
+        // Add food item 
+
+
+
+        // Update food item 
+
+
         // delete a food item 
         private void DeleteItem(FoodItem item)
         {
