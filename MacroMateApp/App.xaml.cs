@@ -27,7 +27,7 @@ namespace MacroMateApp
             {
                 using (var db = new ApplicationDbContext())
                 {
-                    db.Database.Migrate(); // apply a migration at each startup 
+                    db.Database.Migrate(); // apply a migration at each startup so everything is up to date 
                     var testConnection = db.Database.CanConnect(); // used to determine if the database is available and can be connected to 
 
                     // check if connection is successful 
