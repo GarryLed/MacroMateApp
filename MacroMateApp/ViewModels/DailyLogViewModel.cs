@@ -8,6 +8,7 @@ using MacroMateApp.Models;
 using System.Windows.Input;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using MacroMateApp.Data;
 
 namespace MacroMateApp.ViewModels
 {
@@ -116,8 +117,16 @@ namespace MacroMateApp.ViewModels
                 Calories = Calories,
                 Protein = Protein,
                 Carbs = Carbs,
-                Fats = Fats
+                Fats = Fats,
+                MealType = SelectedMeal,
+                Date = DateTime.Today 
             };
+
+            // log food to database 
+            using (var db = new ApplicationDbContext())
+            {
+                
+            }
 
             switch (SelectedMeal)
             {

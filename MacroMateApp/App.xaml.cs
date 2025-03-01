@@ -1,8 +1,11 @@
 ﻿using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Windows;
+using MacroMateApp.Data;
 using MacroMateApp.ViewModels;
 using MacroMateApp.Views;
+using Microsoft.EntityFrameworkCore;
 
 namespace MacroMateApp
 {
@@ -19,7 +22,29 @@ namespace MacroMateApp
            MainWindow mainWindow = new MainWindow();
            mainWindow.Show();
 
-            
+            // testing database connection 
+            try
+            {
+                using (var db = new ApplicationDbContext())
+                {
+                    db.Database.Migrate(); // apply a migration at each startup 
+                    var testConnection = db.Database.CanConnect(); // used to determine if the database is available and can be connected to 
+
+                    // check if connection is successful 
+                    if (testConnection)
+                    {
+                        Debug.WriteLine("Database connection is successful"); // I can see in the debug window if the database connects succefully 
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Database connection failed");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Database error: {ex.Message}");
+            }
 
             
         }
