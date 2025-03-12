@@ -15,7 +15,7 @@ namespace MacroMateApp.Services
     /// </summary>
     public class NutritionApiService
     {
-
+        /*
         private readonly string apiKey = "BVQjXXzU6oySRzHwL02cSDYX9Kf5wFpD0P8xW0aA"; // API Key (will hide this for safety) 
         private readonly string apiUrl = "https://api.nal.usda.gov/fdc/v1/foods/search";
         private readonly HttpClient _httpClient;
@@ -101,6 +101,6 @@ namespace MacroMateApp.Services
             }
             
         }
-
+        */
     }
 }
