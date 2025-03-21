@@ -15,7 +15,9 @@ namespace MacroMateApp.ViewModels
     // a class to handle the business logic for the DailyLogs 
     public class DailyLogViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged;  
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        // method to notify the UI when a property changes 
 
         protected void OnPropertyChanged(string propertyName)
         {
