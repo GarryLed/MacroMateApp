@@ -26,7 +26,7 @@ namespace MacroMateApp.Services
             _httpClient = new HttpClient();
         }
 
-        ///
+        /*
         public async Task<List<FoodItem>> FetchFoodInfoAsync(string foodName)
         {
 
@@ -101,6 +101,7 @@ namespace MacroMateApp.Services
             }
             
         }
+        */
 
     }
 }
