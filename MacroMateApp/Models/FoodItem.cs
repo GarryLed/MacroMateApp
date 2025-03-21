@@ -12,22 +12,22 @@ namespace MacroMateApp.Models
     public class FoodItem
     {
         // properties 
-        [Key] 
-        public int FoodId { get; set; } // primary key 
+        //[Key] 
+       // public int FoodId { get; set; } // primary key 
 
-        [Required] 
+        //[Required] 
         public string Name { get; set; } // Food Item name is required for 
 
-        [Required]
+        //[Required]
         public double Calories { get; set; }
 
         public double Protein { get; set; }
         public double Carbs { get; set; }
         public double Fats { get; set; }
 
-        public string MealType { get; set; } = "Breakfast"; // set defaule meal type to Breakfast 
+       // public string MealType { get; set; } = "Breakfast"; // set defaule meal type to Breakfast 
 
-        public DateTime Date { get; set; } = DateTime.Today; // Todays date for daily tracking 
+        //public DateTime Date { get; set; } = DateTime.Today; // Todays date for daily tracking 
 
 
        

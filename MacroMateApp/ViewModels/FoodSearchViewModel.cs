@@ -19,13 +19,13 @@ namespace MacroMateApp.ViewModels
         private readonly NutritionApiService _nutritionService;
         private string _searchQuery;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public FoodSearchViewModel()
         {
             _nutritionService = new NutritionApiService();
             FoodResults = new ObservableCollection<FoodItem>();
-            SearchCommand = new RelayCommand(async () => await SearchFood());
+            SearchCommand = new RelayCommand(async () => await SearchFood(), () => true);
         }
 
         public string SearchQuery

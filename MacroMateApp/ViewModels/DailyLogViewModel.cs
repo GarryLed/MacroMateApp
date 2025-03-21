@@ -120,8 +120,8 @@ namespace MacroMateApp.ViewModels
                 Protein = Protein,
                 Carbs = Carbs,
                 Fats = Fats,
-                MealType = SelectedMeal,
-                Date = DateTime.Today 
+                //MealType = SelectedMeal,
+                //Date = DateTime.Today 
             };
 
             // log food to database 
