@@ -39,12 +39,14 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Food Name" DisplayMemberBinding="{Binding Name}" Width="200"/>
-                    <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="80"/>
-                    <GridViewColumn Header="Protein (g)" DisplayMemberBinding="{Binding Protein}" Width="80"/>
-                    <GridViewColumn Header="Carbs (g)" DisplayMemberBinding="{Binding Carbs}" Width="80"/>
-                    <GridViewColumn Header="Fats (g)" DisplayMemberBinding="{Binding Fats}" Width="80"/>
+                    <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="200"/>
+                    <GridViewColumn Header="Protein (g)" DisplayMemberBinding="{Binding Protein}" Width="200"/>
+                    <GridViewColumn Header="Carbs (g)" DisplayMemberBinding="{Binding Carbs}" Width="200"/>
+                    <GridViewColumn Header="Fats (g)" DisplayMemberBinding="{Binding Fats}" Width="200"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        
+        
     </Grid>
 </Page>

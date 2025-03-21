@@ -19,13 +19,13 @@ namespace MacroMateApp.Models
 
 
         // properties 
-        private int _totalCalories;
-        private int _totalProtein;
-        private int _totalCarbs;
-        private int _totalFats; 
+        private double _totalCalories;
+        private double _totalProtein;
+        private double _totalCarbs;
+        private double _totalFats; 
 
 
-        public int TotalCalories 
+        public double TotalCalories 
         {
             get => _totalCalories;
             set
@@ -35,7 +35,7 @@ namespace MacroMateApp.Models
             }
         }
 
-        public int TotalProtein
+        public double TotalProtein
         {
             get => _totalProtein;
             set
@@ -46,7 +46,7 @@ namespace MacroMateApp.Models
 
         }
 
-        public int TotalCarbs
+        public double TotalCarbs
         {
             get => _totalCarbs;
             set
@@ -56,7 +56,7 @@ namespace MacroMateApp.Models
             }
         }
 
-        public int TotalFats
+        public double TotalFats
         {
             get => _totalFats;
             set

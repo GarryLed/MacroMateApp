@@ -22,7 +22,7 @@ namespace MacroMateApp.Views
     {
         public SettingsPage()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }
