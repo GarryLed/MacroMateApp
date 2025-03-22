@@ -11,30 +11,39 @@
     <Grid Margin="20" Background="Beige">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Set Your Daily Nutrition Goals" FontSize="24" FontWeight="Bold"
+        <!-- Header -->
+        <TextBlock Text="Set Your Daily Nutrition Goals"
+                   FontSize="24" FontWeight="Bold"
                    HorizontalAlignment="Center" Margin="0,10"/>
 
-        <!-- Input Fields -->
-        <StackPanel Grid.Row="1" Margin="10">
-            <TextBlock Text="Calories Goal:" FontSize="16"/>
-            <TextBox Text="{Binding Goals.CaloriesGoal, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
+        <!-- daily goals  -->
+        <StackPanel Grid.Row="1" Margin="40" Width="300" HorizontalAlignment="Center">
+            <TextBlock Text="Calories Goal (kcal):" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding Goals.CaloriesGoal, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
-            <TextBlock Text="Protein Goal (g):" FontSize="16"/>
-            <TextBox Text="{Binding Goals.ProteinGoal, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
+            <TextBlock Text="Protein Goal (g):" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding Goals.ProteinGoal, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
-            <TextBlock Text="Carbs Goal (g):" FontSize="16"/>
-            <TextBox Text="{Binding Goals.CarbsGoal, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
+            <TextBlock Text="Carbohydrates Goal (g):" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding Goals.CarbsGoal, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
-            <TextBlock Text="Fats Goal (g):" FontSize="16"/>
-            <TextBox Text="{Binding Goals.FatsGoal, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
+            <TextBlock Text="Fats Goal (g):" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding Goals.FatsGoal, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,20"/>
         </StackPanel>
 
-        <!-- Save Button -->
-        <Button Grid.Row="2" Content="Save Goals" Command="{Binding SaveGoalsCommand}"
-                HorizontalAlignment="Center" Background="Green" Foreground="White" Padding="10"/>
+        <!-- save goals button  -->
+        <Button Grid.Row="2" Content="Save Goals"
+                Command="{Binding SaveGoalsCommand}"
+                Background="DarkGreen"
+                Foreground="White"
+                FontWeight="Bold"
+                Width="150"
+                Height="40"
+                HorizontalAlignment="Center"
+                Margin="0,10"/>
     </Grid>
 </Page>

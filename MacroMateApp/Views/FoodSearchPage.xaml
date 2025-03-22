@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:MacroMateApp.Views"
+      xmlns:local="clr-namespace:MacroMateApp.Views" xmlns:viewmodels="clr-namespace:MacroMateApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:FoodSearchViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FoodSearchPage">
@@ -13,6 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <!-- Header Section -->
@@ -21,32 +22,54 @@
 
         <!-- Search Bar Section -->
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,10">
-            <TextBlock Text="Enter a food name:" FontSize="14" FontWeight="SemiBold" 
-               Margin="0,0,0,5"/>
+            <TextBlock Text="Enter a food name:" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,5"/>
             <StackPanel Orientation="Horizontal">
                 <TextBox Width="250" Height="30" 
-                 Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"
-                 VerticalAlignment="Center"
-                 Padding="5"/>
-                <Button Content="🔍 Search" Command="{Binding SearchCommand}" 
-                Margin="10,0,0,0" Width="100" Height="30"/>
+                         Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"
+                         VerticalAlignment="Center"
+                         Padding="5"/>
+                <Button Content="Search" Command="{Binding SearchCommand}" 
+                        Margin="10,0,0,0" Width="100" Height="30"/>
             </StackPanel>
         </StackPanel>
 
-
         <!-- Food Search Results -->
-        <ListView Grid.Row="2" ItemsSource="{Binding FoodResults}" Margin="0,10,0,0">
+        <ListView Grid.Row="2"
+                  ItemsSource="{Binding FoodResults}"
+                  SelectedItem="{Binding SelectedFoodItem}"
+                  Margin="0,10,0,10"
+                  Height="250">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Food Name" DisplayMemberBinding="{Binding Name}" Width="200"/>
-                    <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="200"/>
-                    <GridViewColumn Header="Protein (g)" DisplayMemberBinding="{Binding Protein}" Width="200"/>
-                    <GridViewColumn Header="Carbs (g)" DisplayMemberBinding="{Binding Carbs}" Width="200"/>
-                    <GridViewColumn Header="Fats (g)" DisplayMemberBinding="{Binding Fats}" Width="200"/>
+                    <GridViewColumn Header="Serving Size" DisplayMemberBinding="{Binding ServingSize}" Width="120"/>
+                    <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="100"/>
+                    <GridViewColumn Header="Protein (g)" DisplayMemberBinding="{Binding Protein}" Width="100"/>
+                    <GridViewColumn Header="Carbs (g)" DisplayMemberBinding="{Binding Carbs}" Width="100"/>
+                    <GridViewColumn Header="Fats (g)" DisplayMemberBinding="{Binding Fats}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        
+
+        <!-- Add to Daily Log Controls -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <TextBlock Text="Add to Meal:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <!-- Meal Selection -->
+            
+       
+            <ComboBox SelectedValuePath="Content" SelectedValue="{Binding SelectedMeal}" Margin="0,0,0,10">
+                <ComboBoxItem Content="Breakfast"/>
+                <ComboBoxItem Content="Lunch"/>
+                <ComboBoxItem Content="Dinner"/>
+                <ComboBoxItem Content="Snacks"/>
+            </ComboBox>
+            <Button Content="Add to Daily Log"
+                    Command="{Binding AddToLogCommand}" 
+                    Margin="10,0,0,0"
+                    Width="150"
+                    Background="DarkGreen"
+                    Foreground="White"
+                    FontWeight="SemiBold"/>
+        </StackPanel>
     </Grid>
 </Page>

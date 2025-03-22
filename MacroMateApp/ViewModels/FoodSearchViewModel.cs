@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using MacroMateApp.Models;
-using System.Windows.Input;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using MacroMateApp.Data;
-using MacroMateApp.Services;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using MacroMateApp.Models;
+using MacroMateApp.Services;
+using MacroMateApp.Data;
 
 namespace MacroMateApp.ViewModels
 {
@@ -18,6 +14,8 @@ namespace MacroMateApp.ViewModels
     {
         private readonly NutritionApiService _nutritionService;
         private string _searchQuery;
+        private FoodItem _selectedFoodItem;
+        private string _selectedMeal = "Breakfast";
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -25,18 +23,51 @@ namespace MacroMateApp.ViewModels
         {
             _nutritionService = new NutritionApiService();
             FoodResults = new ObservableCollection<FoodItem>();
-            SearchCommand = new RelayCommand(async () => await SearchFood(), () => true);
+
+            SearchCommand = new RelayCommand(async () => await SearchFood());
+            AddToLogCommand = new RelayCommand(AddSelectedFoodToLog, () => SelectedFoodItem != null); // initialize command first
+
+            SelectedFoodItem = new FoodItem(); // set SelectedFoodItem after initializing commands
         }
 
         public string SearchQuery
         {
             get => _searchQuery;
-            set { _searchQuery = value; OnPropertyChanged(); }
+            set
+            {
+                _searchQuery = value;
+                OnPropertyChanged();
+            }
         }
 
         public ObservableCollection<FoodItem> FoodResults { get; }
 
+        public FoodItem SelectedFoodItem
+        {
+            get => _selectedFoodItem;
+            set
+            {
+                _selectedFoodItem = value;
+                OnPropertyChanged();
+                // Notify that AddToLogCommand can re-evaluate CanExecute
+               ((RelayCommand)AddToLogCommand).RaiseCanExecuteChanged();
+            }
+        }
+
+        public string SelectedMeal
+        {
+            get => _selectedMeal;
+            set
+            {
+                _selectedMeal = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand SearchCommand { get; }
+
+        public ICommand AddToLogCommand { get; private set; }
+
 
         private async Task SearchFood()
         {
@@ -50,6 +81,25 @@ namespace MacroMateApp.ViewModels
             {
                 FoodResults.Add(item);
             }
+        }
+
+        private void AddSelectedFoodToLog()
+        {
+            if (SelectedFoodItem == null)
+                return;
+
+            var newFoodItem = new FoodItem
+            {
+                Name = SelectedFoodItem.Name,
+                Calories = SelectedFoodItem.Calories,
+                Protein = SelectedFoodItem.Protein,
+                Carbs = SelectedFoodItem.Carbs,
+                Fats = SelectedFoodItem.Fats,
+                MealType = SelectedMeal,
+                Date = DateTime.Today
+            };
+
+            App.SharedDailyLogViewModel?.AddFromSearch(newFoodItem);
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)

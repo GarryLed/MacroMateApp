@@ -51,13 +51,14 @@ namespace MacroMateApp.ViewModels
 
 
         // Temporary properties for user input
+        
         public string FoodName { get; set; } = "";
         public double Calories { get; set; }
         public double Protein { get; set; }
         public double Carbs { get; set; }
         public double Fats { get; set; }
         public string SelectedMeal { get; set; } = "Breakfast"; // Default selection
-
+        
 
 
         // constructor 
@@ -113,6 +114,8 @@ namespace MacroMateApp.ViewModels
         {
             //if (string.IsNullOrWhiteSpace(FoodName)) return;
 
+            System.Diagnostics.Debug.WriteLine($"Adding food item {FoodName} to {SelectedMeal}"); // testing to see if food name is being added to selected meal 
+
             var newFoodItem = new FoodItem
             {
                 Name = FoodName,
@@ -120,15 +123,15 @@ namespace MacroMateApp.ViewModels
                 Protein = Protein,
                 Carbs = Carbs,
                 Fats = Fats,
-                //MealType = SelectedMeal,
-                //Date = DateTime.Today 
+                MealType = SelectedMeal,
+                Date = DateTime.Today 
             };
 
             // log food to database 
-            using (var db = new ApplicationDbContext())
-            {
+           // using (var db = new ApplicationDbContext())
+            //{
                 
-            }
+            //}
 
             switch (SelectedMeal)
             {
@@ -149,6 +152,29 @@ namespace MacroMateApp.ViewModels
             UpdateDailyTotals();
 
         }
+
+        // add food item from search results
+        public void AddFromSearch(FoodItem item)
+        {
+            switch (item.MealType)
+            {
+                case "Breakfast":
+                    BreakfastLog.Add(item); 
+                    break;
+                case "Lunch": 
+                    LunchLog.Add(item);
+                    break;
+                case "Dinner":
+                    DinnerLog.Add(item);
+                    break;
+                case "Snacks": 
+                    SnacksLog.Add(item); 
+                    break;
+            }
+
+            UpdateDailyTotals();
+        }
+
 
 
         // Update food item 

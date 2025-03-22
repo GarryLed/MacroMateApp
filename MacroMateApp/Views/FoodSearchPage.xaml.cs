@@ -24,7 +24,8 @@ namespace MacroMateApp.Views
         public FoodSearchPage()
         {
             InitializeComponent();
-            DataContext = new FoodSearchViewModel();
+            //DataContext = new FoodSearchViewModel();
+            DataContext = App.SharedFoodSearchViewModel;
         }
     }
 }

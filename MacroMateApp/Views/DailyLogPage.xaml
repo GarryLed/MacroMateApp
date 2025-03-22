@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MacroMateApp.Views" xmlns:models="clr-namespace:MacroMateApp.Models" d:DataContext="{d:DesignInstance Type=models:DailyTotals}"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="800"
+      d:DesignHeight="1200" d:DesignWidth="800"
       Title="DailyLogPage">
 
     <Grid Margin="20" Background="Beige">
@@ -18,6 +18,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+
         <!-- Header  -->
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,20">
             <TextBlock Text="Daily Food Log" FontSize="28" FontWeight="Bold"/>
@@ -27,24 +28,59 @@
         
         <!-- Add food item -->
         <StackPanel Grid.Row="2" Margin="10">
-            <TextBlock Text="Add a Food Item:" FontSize="16" FontWeight="Bold"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBox Width="150" Text="{Binding FoodName, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox Width="80" Text="{Binding Calories, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox Width="80" Text="{Binding Protein, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox Width="80" Text="{Binding Carbs, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox Width="80" Text="{Binding Fats, UpdateSourceTrigger=PropertyChanged}" />
-                <ComboBox Width="120" SelectedItem="{Binding SelectedMeal}">
+            <StackPanel Margin="20" Width="400" HorizontalAlignment="Left">
+                <!-- Section Title -->
+                <TextBlock Text="➕ Add a Food Item" 
+               FontSize="18" 
+               FontWeight="Bold" 
+               Margin="0,0,0,10"
+               Foreground="Black"/>
+
+                <!-- Food Name -->
+                <TextBlock Text="Food Name:" FontWeight="SemiBold"/>
+                <TextBox Text="{Binding FoodName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+
+                <!-- Serving size -->
+                <TextBlock Text="Serving size (g):" FontWeight="SemiBold"/>
+                <TextBox Text="{Binding ServingSize, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+
+                <!-- Calories -->
+                <TextBlock Text="Calories (kcal):" FontWeight="SemiBold"/>
+                <TextBox Text="{Binding Calories, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+
+                <!-- Protein -->
+                <TextBlock Text="Protein (g):" FontWeight="SemiBold"/>
+                <TextBox Text="{Binding Protein, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+
+                <!-- Carbs -->
+                <TextBlock Text="Carbohydrates (g):" FontWeight="SemiBold"/>
+                <TextBox Text="{Binding Carbs, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+
+                <!-- Fats -->
+                <TextBlock Text="Fats (g):" FontWeight="SemiBold"/>
+                <TextBox Text="{Binding Fats, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+
+                <!-- Meal Selection -->
+                <TextBlock Text="Meal Type:" FontWeight="SemiBold"/>
+                <ComboBox SelectedValuePath="Content" SelectedValue="{Binding SelectedMeal}" Margin="0,0,0,10">
                     <ComboBoxItem Content="Breakfast"/>
                     <ComboBoxItem Content="Lunch"/>
                     <ComboBoxItem Content="Dinner"/>
                     <ComboBoxItem Content="Snacks"/>
                 </ComboBox>
-                <Button Content="Add" Command="{Binding AddItemCommand}" Background="Green" Foreground="White" Width="80"/>
+
+                <!-- Add food button -->
+                <Button Content="Add Food" 
+            Command="{Binding AddItemCommand}" 
+            Background="Green" 
+            Foreground="White"
+            FontWeight="Bold"
+            Height="35"/>
             </StackPanel>
         </StackPanel>
 
-
+        <TextBlock Grid.Row="3" Text="Logged Meals for today" FontSize="18" FontWeight="Bold" Foreground="DarkSlateBlue" Margin="10,10,10,0"/>
+       
         <!-- Food Log sections  -->
         <TabControl Grid.Row="3" Margin="10">
             
@@ -159,22 +195,22 @@
         </TabControl>
         
         <!-- Display Daily totals -->
-       
         <StackPanel Grid.Row="4" Margin="10">
-            <TextBlock Text="Daily Totals" FontSize="18" FontWeight="Bold"/>
+            <TextBlock Text="Daily Totals" FontSize="18" FontWeight="Bold" Foreground="DarkBlue" Margin="0,10,0,10"/>
 
-            <TextBlock Text="Total Calories:" Margin="0,5,0,0"/>
+            <TextBlock Text="Total Calories:" />
             <TextBlock Text="{Binding DailyTotals.TotalCalories}" Margin="5"/>
 
-            <TextBlock Text="Protein (g)" Margin="0,5,0,0"/>
+            <TextBlock Text="Protein (g)" />
             <TextBlock Text="{Binding DailyTotals.TotalProtein}" Margin="5"/>
 
-            <TextBlock Text="Carbs (g)" Margin="0,5,0,0"/>
+            <TextBlock Text="Carbs (g)" />
             <TextBlock Text="{Binding DailyTotals.TotalCarbs}" Margin="5"/>
 
-            <TextBlock Text="Fats (g)" Margin="0,5,0,0"/>
+            <TextBlock Text="Fats (g)" />
             <TextBlock Text="{Binding DailyTotals.TotalFats}" Margin="5"/>
         </StackPanel>
+
 
 
 

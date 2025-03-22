@@ -15,12 +15,17 @@ namespace MacroMateApp
     public partial class App : Application
     {
         // Sharing the DailyLogViewModel accross the app  and initilizing a new instance of the DailyLogViewModel 
-        public static DailyLogViewModel SharedDailyLogViewModel { get; private set; } = new DailyLogViewModel();
+        public static DailyLogViewModel SharedDailyLogViewModel { get; private set; } //= new DailyLogViewModel();
+        public static FoodSearchViewModel SharedFoodSearchViewModel { get; private set; } //= new FoodSearchViewModel();
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-           MainWindow mainWindow = new MainWindow();
-           mainWindow.Show();
+           //MainWindow mainWindow = new MainWindow();
+           //mainWindow.Show();
+
+
+            SharedDailyLogViewModel = new DailyLogViewModel();
+            SharedFoodSearchViewModel = new FoodSearchViewModel(); 
 
             // testing database connection 
             try

@@ -24,10 +24,11 @@ namespace MacroMateApp.Models
         public double Protein { get; set; }
         public double Carbs { get; set; }
         public double Fats { get; set; }
+        public string ServingSize { get; set; } = "1 serving"; // set default serving size to 1 serving 
 
-       // public string MealType { get; set; } = "Breakfast"; // set defaule meal type to Breakfast 
+        public string MealType { get; set; } = "Breakfast"; // set defaule meal type to Breakfast 
 
-        //public DateTime Date { get; set; } = DateTime.Today; // Todays date for daily tracking 
+        public DateTime Date { get; set; } = DateTime.Today; // Todays date for daily tracking 
 
 
        

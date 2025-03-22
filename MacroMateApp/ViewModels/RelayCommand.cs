@@ -50,9 +50,15 @@ namespace MacroMateApp.ViewModels
             add { CommandManager.RequerySuggested += value; }
             remove {  CommandManager.RequerySuggested -= value; }
         }
-    
 
-        
+
+        public void RaiseCanExecuteChanged()
+        {
+            CommandManager.InvalidateRequerySuggested();
+        }
+
+
+
 
     } // end of RelayCommand class for commands witout arguments 
 
@@ -80,10 +86,18 @@ namespace MacroMateApp.ViewModels
             }
         }
 
+       
+
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CommandManager.InvalidateRequerySuggested();
+        }
+
     }
 }
