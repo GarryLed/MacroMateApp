@@ -20,12 +20,13 @@ namespace MacroMateApp
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-           //MainWindow mainWindow = new MainWindow();
-           //mainWindow.Show();
+            //MainWindow mainWindow = new MainWindow();
+            //mainWindow.Show();
 
 
             SharedDailyLogViewModel = new DailyLogViewModel();
-            SharedFoodSearchViewModel = new FoodSearchViewModel(); 
+            SharedFoodSearchViewModel = new FoodSearchViewModel(SharedDailyLogViewModel);
+
 
             // testing database connection 
             try

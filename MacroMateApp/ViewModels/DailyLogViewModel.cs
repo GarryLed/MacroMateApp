@@ -156,6 +156,7 @@ namespace MacroMateApp.ViewModels
         // add food item from search results
         public void AddFromSearch(FoodItem item)
         {
+            System.Diagnostics.Debug.WriteLine($"Adding to {item.MealType}: {item.Name} | Calories: {item.Calories}");
             switch (item.MealType)
             {
                 case "Breakfast":
