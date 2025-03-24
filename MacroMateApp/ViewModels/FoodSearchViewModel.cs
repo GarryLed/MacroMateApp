@@ -43,7 +43,7 @@ namespace MacroMateApp.ViewModels
             SearchCommand = new RelayCommand(async () => await SearchFood());
 
             // command for adding a selected food item to the daily log (initially disabled)
-            AddToLogCommand = new RelayCommand(AddSelectedFoodToLog,() => SelectedFoodItem != null);
+            AddToLogCommand = new RelayCommand(AddSelectedFoodToLog, () => SelectedFoodItem != null);
 
 
             // initialize SelectedFoodItem to avoid null reference exceptions (not having this line caused a bug)
@@ -114,7 +114,7 @@ namespace MacroMateApp.ViewModels
         }
 
         // add the selected food item to the appropriate meal log
-        /*
+        
         private void AddSelectedFoodToLog()
         {
             if (SelectedFoodItem == null)
@@ -123,11 +123,12 @@ namespace MacroMateApp.ViewModels
             // create a new FoodItem object for logging the food 
             var newFoodItem = new FoodItem
             {
-                Name = SelectedFoodItem.Name,
-                Calories = SelectedFoodItem.Calories,
-                Protein = SelectedFoodItem.Protein,
-                Carbs = SelectedFoodItem.Carbs,
-                Fats = SelectedFoodItem.Fats,
+                // TEMP RESULT BUT THE CODE WORKS 
+                Name = FoodResults[0].Name,
+                Calories = FoodResults[0].Calories,
+                Protein = FoodResults[0].Protein,
+                Carbs = FoodResults[0].Carbs,
+                Fats = FoodResults[0].Fats,
                 MealType = SelectedMeal,
                 Date = DateTime.Today
             };
@@ -135,22 +136,52 @@ namespace MacroMateApp.ViewModels
             // add the new item to the shared daily log
             _dailyLogViewModel.AddFromSearch(newFoodItem);
         }
+        
 
+        // add the selected food item to the appropriate meal log
+
+        /*
+        private void AddSelectedFoodToLog(FoodItem foodresults)
+        {
+            if (foodresults == null)
+                return;
+
+            // create a new FoodItem object for logging the food 
+            var newFoodItem = new FoodItem
+            {
+                Name = foodresults.Name,
+                Calories = foodresults.Calories,
+                Protein = foodresults.Protein,
+                Carbs = foodresults.Carbs,
+                Fats = foodresults.Fats,
+                MealType = SelectedMeal, // broken and need to be fixed 
+                Date = DateTime.Today
+            };
+
+            // add the new item to the shared daily log
+            _dailyLogViewModel.AddFromSearch(newFoodItem);
+        }
         */
         //====================
+        /*
         private void AddSelectedFoodToLog()
         {
             if (SelectedFoodItem == null)
                 return;
 
-            // Add meal-specific context directly to the selected object
-            SelectedFoodItem.MealType = SelectedMeal;
-            SelectedFoodItem.Date = DateTime.Today;
+            // Copy properties to the shared DailyLogViewModel's inputs
+            _dailyLogViewModel.FoodName = SelectedFoodItem.Name;
+            _dailyLogViewModel.Calories = SelectedFoodItem.Calories;
+            _dailyLogViewModel.Protein = SelectedFoodItem.Protein;
+            _dailyLogViewModel.Carbs = SelectedFoodItem.Carbs;
+            _dailyLogViewModel.Fats = SelectedFoodItem.Fats;
+            _dailyLogViewModel.SelectedMeal = SelectedMeal;
 
-            // Pass the same instance to the daily log
-            _dailyLogViewModel.AddFromSearch(SelectedFoodItem);
+            // Call the shared AddItemCommand
+            _dailyLogViewModel.AddItemCommand.Execute(null);
         }
 
+        */
 
 
         //=====================

@@ -44,11 +44,11 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Food Name" DisplayMemberBinding="{Binding Name}" Width="200"/>
-                    <GridViewColumn Header="Serving Size" DisplayMemberBinding="{Binding ServingSize}" Width="120"/>
-                    <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="100"/>
-                    <GridViewColumn Header="Protein (g)" DisplayMemberBinding="{Binding Protein}" Width="100"/>
-                    <GridViewColumn Header="Carbs (g)" DisplayMemberBinding="{Binding Carbs}" Width="100"/>
-                    <GridViewColumn Header="Fats (g)" DisplayMemberBinding="{Binding Fats}" Width="100"/>
+                    <GridViewColumn Header="Serving Size" DisplayMemberBinding="{Binding ServingSize}" Width="150"/>
+                    <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="150"/>
+                    <GridViewColumn Header="Protein (g)" DisplayMemberBinding="{Binding Protein}" Width="150"/>
+                    <GridViewColumn Header="Carbs (g)" DisplayMemberBinding="{Binding Carbs}" Width="150"/>
+                    <GridViewColumn Header="Fats (g)" DisplayMemberBinding="{Binding Fats}" Width="150"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -66,6 +66,8 @@
                 <ComboBoxItem Content="Dinner"/>
                 <ComboBoxItem Content="Snacks"/>
             </ComboBox>
+            <TextBlock Text="{Binding SelectedFoodItem.Name}" Foreground="Red" />
+
 
             <!-- Add Button -->
             <Button Content="Add to Daily Log"

@@ -32,7 +32,7 @@
                 <Button Content="Food Search"  Command="{Binding NavigateToFoodSearchCommand}"/>
                 <Button Content="Daily Log"  Command="{Binding NavigateToDailyLogCommand}"/>
                 <Button Content="Nutrient Goals"  Command="{Binding NavigateToGoalsCommand}"/>
-                <Button Content="Settings" Command="{Binding NavigateToSettingsCommand}"/>
+                
 
             </StackPanel>
         </DockPanel>
