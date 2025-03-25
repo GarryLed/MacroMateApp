@@ -34,11 +34,22 @@
       
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
-                    <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                    <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="LightBlue" SecondaryColor="Lime" />
 
                     <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
                 </ResourceDictionary.MergedDictionaries>
-            </ResourceDictionary>
+
+            <!-- Custome colour brushes -->
+            <!-- App Background -->
+            <SolidColorBrush x:Key="AppBackgroundBrush" Color="#EEF5F9"/>
+
+
+            <!-- Sky Blue Navbar -->
+            <SolidColorBrush x:Key="NavbarBackgroundBrush" Color="#38BDF8"/>
+                
+            <!-- Dark Text -->
+            <SolidColorBrush x:Key="TextBrush" Color="#111827"/>
+        </ResourceDictionary>
    
 
 

@@ -10,8 +10,8 @@
 
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-    <Grid Margin="20" Background="Beige">
-        <Grid.RowDefinitions>
+        <Grid Margin="20" Background="{StaticResource AppBackgroundBrush}">
+            <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
