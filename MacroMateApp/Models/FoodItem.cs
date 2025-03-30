@@ -30,7 +30,7 @@ namespace MacroMateApp.Models
 
         public DateTime Date { get; set; } = DateTime.Today; // Todays date for daily tracking 
 
-        public string ImageUrl { get; set; } // url to the food items image 
+        public string ImageUrl { get; set; } = "";// url to the food items image 
 
 
 

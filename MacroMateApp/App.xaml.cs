@@ -3,6 +3,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Windows;
 using MacroMateApp.Data;
+using MacroMateApp.Models;
 using MacroMateApp.ViewModels;
 using MacroMateApp.Views;
 using Microsoft.EntityFrameworkCore;
@@ -28,32 +29,52 @@ namespace MacroMateApp
             SharedFoodSearchViewModel = new FoodSearchViewModel(SharedDailyLogViewModel);
 
 
-            // testing database connection 
-            try
+            // testing database connection for UserGoals
+            using (var db = new ApplicationDbContext())
             {
-                using (var db = new ApplicationDbContext())
-                {
-                    db.Database.Migrate(); // apply a migration at each startup so everything is up to date 
-                    var testConnection = db.Database.CanConnect(); // used to determine if the database is available and can be connected to 
+                db.Database.EnsureCreated(); 
 
-                    // check if connection is successful 
-                    if (testConnection)
+                if (!db.UserGoals.Any())
+                {
+                    db.UserGoals.Add(new UserGoals
                     {
-                        Debug.WriteLine("Database connection is successful"); // I can see in the debug window if the database connects succefully 
-                    }
-                    else
+                        CaloriesGoal = 2000,
+                        ProteinGoal = 150,
+                        CarbGoal = 250,
+                        FatGoal = 70
+                    });
+                    db.SaveChanges();
+                }
+
+                var testGoal = db.UserGoals.FirstOrDefault();
+                MessageBox.Show($"Test Goal: {testGoal?.CaloriesGoal} kcal");
+            }
+
+            // testing database connection for FoodItem
+            using (var db = new ApplicationDbContext())
+            {
+                db.Database.EnsureCreated(); 
+
+                if (!db.FoodLog.Any())
+                {
+                    db.FoodLog.Add(new FoodItem
                     {
-                        Debug.WriteLine("Database connection failed");
-                    }
+                        Name = "Grilled Chicken Breast",
+                        Calories = 165,
+                        Protein = 31,
+                        Carbs = 0,
+                        Fats = 4,
+                        ImageUrl = "random image url"
+                    });
+                    db.SaveChanges();
+                    MessageBox.Show("Food item saved!");
                 }
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Database error: {ex.Message}");
-            }
 
-            
         }
+
+
+
     }
 
 }
