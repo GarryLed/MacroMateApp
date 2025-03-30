@@ -130,7 +130,8 @@ namespace MacroMateApp.ViewModels
                 Carbs = FoodResults[0].Carbs,
                 Fats = FoodResults[0].Fats,
                 MealType = SelectedMeal,
-                Date = DateTime.Today
+                Date = DateTime.Today, 
+                ImageUrl = FoodResults[0].ImageUrl
             };
 
             // add the new item to the shared daily log

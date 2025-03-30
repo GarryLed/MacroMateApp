@@ -48,6 +48,7 @@ namespace MacroMateApp.Services
                 double protein = item.food.nutrients.PROCNT ?? 0;
                 double carbs = item.food.nutrients.CHOCDF ?? 0;
                 double fats = item.food.nutrients.FAT ?? 0;
+                string image = item.food.image ?? "";
 
                 string servingSize = "100g";
                 if (item.food.measures != null)
@@ -57,13 +58,14 @@ namespace MacroMateApp.Services
 
                 foodList.Add(new FoodItem
                 {
-                  //  FoodId = foodId,
+                    //  FoodId = foodId,
                     Name = label,
                     Calories = calories,
                     Protein = protein,
                     Carbs = carbs,
                     Fats = fats,
-                    ServingSize = servingSize
+                    ServingSize = servingSize,
+                    ImageUrl = image
                 });
             }
 

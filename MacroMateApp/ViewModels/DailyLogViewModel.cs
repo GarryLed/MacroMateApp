@@ -58,7 +58,9 @@ namespace MacroMateApp.ViewModels
         public double Carbs { get; set; }
         public double Fats { get; set; }
         public string SelectedMeal { get; set; } = "Breakfast"; // Default selection
-        
+
+        public string ImageUrl { get; set; } // url to the food items image
+
 
 
         // constructor 
@@ -114,8 +116,7 @@ namespace MacroMateApp.ViewModels
         {
             //if (string.IsNullOrWhiteSpace(FoodName)) return;
 
-            System.Diagnostics.Debug.WriteLine($"Adding food item {FoodName} to {SelectedMeal}"); // testing to see if food name is being added to selected meal 
-
+           
             var newFoodItem = new FoodItem
             {
                 Name = FoodName,
@@ -124,7 +125,9 @@ namespace MacroMateApp.ViewModels
                 Carbs = Carbs,
                 Fats = Fats,
                 MealType = SelectedMeal,
-                Date = DateTime.Today 
+                Date = DateTime.Today, 
+
+      
             };
 
             // log food to database 
@@ -156,7 +159,7 @@ namespace MacroMateApp.ViewModels
         // add food item from search results
         public void AddFromSearch(FoodItem item)
         {
-            System.Diagnostics.Debug.WriteLine($"Adding to {item.MealType}: {item.Name} | Calories: {item.Calories}");
+            
             switch (item.MealType)
             {
                 case "Breakfast":

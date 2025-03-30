@@ -83,22 +83,32 @@
             </StackPanel>
         </StackPanel>
 
-        <TextBlock Grid.Row="3" Text="Logged Meals for today" FontSize="18" FontWeight="Bold" Foreground="DarkSlateBlue" Margin="10,10,10,0"/>
+        <TextBlock Grid.Row="3" Text="Logged Meals for today" FontSize="18" FontWeight="Bold"  Margin="20,20,20,20"/>
        
         <!-- Food Log sections  -->
-        <TabControl Grid.Row="3" Margin="10">
+        <TabControl Grid.Row="3" Margin="40">
             
             <!-- Breakfast -->
             <TabItem Header="Breakfast">
                 <ListView ItemsSource="{Binding BreakfastLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Food" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                            <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="75"/>
-                            <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="75"/>
-                            <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="75"/>
-                            <GridViewColumn Header="Fats" DisplayMemberBinding="{Binding Fats}" Width="75"/>
-                            <GridViewColumn Header="Delete Food Item" Width="150">
+                                <GridViewColumn Header="Food" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Margin="5, 5, 5, 5">
+                                                <Image Source="{Binding ImageUrl}" Width="80" Height="80" Stretch="UniformToFill" />
+                                                <TextBlock Text="{Binding Name}" VerticalAlignment="Top"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Serving Size" DisplayMemberBinding="{Binding ServingSize}" Width="150"/>
+                                <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="150"/>
+                            <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="150"/>
+                            <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="150"/>
+                            <GridViewColumn Header="Fats" DisplayMemberBinding="{Binding Fats}" Width="150"/>
+                            <GridViewColumn Header="Delete Item" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
@@ -119,12 +129,22 @@
                 <ListView ItemsSource="{Binding LunchLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Food" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                            <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="75"/>
-                            <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="75"/>
-                            <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="75"/>
-                            <GridViewColumn Header="Fats" DisplayMemberBinding="{Binding Fats}" Width="75"/>
-                            <GridViewColumn Header="Delete Food Item" Width="150">
+                                <GridViewColumn Header="Food" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Margin="5, 5, 5, 5">
+                                                <Image Source="{Binding ImageUrl}" Width="80" Height="80" Stretch="UniformToFill" />
+                                                <TextBlock Text="{Binding Name}" VerticalAlignment="Top"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Serving Size" DisplayMemberBinding="{Binding ServingSize}" Width="150"/>
+                                <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="150"/>
+                            <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="150"/>
+                            <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="150"/>
+                            <GridViewColumn Header="Fats" DisplayMemberBinding="{Binding Fats}" Width="150"/>
+                            <GridViewColumn Header="Delete Item" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
@@ -145,12 +165,22 @@
                 <ListView ItemsSource="{Binding DinnerLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Food" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                            <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="75"/>
-                            <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="75"/>
-                            <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="75"/>
-                            <GridViewColumn Header="Fats" DisplayMemberBinding="{Binding Fats}" Width="75"/>
-                            <GridViewColumn Header="Delete Food Item" Width="150">
+                                <GridViewColumn Header="Food" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Margin="5, 5, 5, 5">
+                                                <Image Source="{Binding ImageUrl}" Width="80" Height="80" Stretch="UniformToFill" />
+                                                <TextBlock Text="{Binding Name}" VerticalAlignment="Top"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Serving Size" DisplayMemberBinding="{Binding ServingSize}" Width="150"/>
+                                <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="150"/>
+                            <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="150"/>
+                            <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="150"/>
+                            <GridViewColumn Header="Fats" DisplayMemberBinding="{Binding Fats}" Width="150"/>
+                            <GridViewColumn Header="Delete Item" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
@@ -174,12 +204,22 @@
                 <ListView ItemsSource="{Binding SnacksLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Food" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                            <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="75"/>
-                            <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="75"/>
-                            <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="75"/>
-                            <GridViewColumn Header="Fats" DisplayMemberBinding="{Binding Fats}" Width="75"/>
-                            <GridViewColumn Header="Delete Food Item" Width="150">
+                                <GridViewColumn Header="Food" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Margin="5, 5, 5, 5">
+                                                <Image Source="{Binding ImageUrl}" Width="80" Height="80" Stretch="UniformToFill" />
+                                                <TextBlock Text="{Binding Name}" VerticalAlignment="Top"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Serving Size" DisplayMemberBinding="{Binding ServingSize}" Width="150"/>
+                                <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="150"/>
+                            <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="150"/>
+                            <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="150"/>
+                            <GridViewColumn Header="Fats" DisplayMemberBinding="{Binding Fats}" Width="150"/>
+                            <GridViewColumn Header="Delete Item" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
@@ -200,7 +240,7 @@
         
         <!-- Display Daily totals -->
         <StackPanel Grid.Row="4" Margin="10">
-            <TextBlock Text="Daily Totals" FontSize="18" FontWeight="Bold" Foreground="DarkBlue" Margin="0,10,0,10"/>
+            <TextBlock Text="Daily Totals" FontSize="18" FontWeight="Bold"  Margin="0,20,0,20"/>
 
             <TextBlock Text="Total Calories:" />
             <TextBlock Text="{Binding DailyTotals.TotalCalories}" Margin="5"/>
@@ -223,10 +263,10 @@
             <TextBlock Text="Quick Access" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10"/>
 
             <WrapPanel HorizontalAlignment="Center" Margin="10">
-                <Button Content="Log Food" Width="120" Height="40" Margin="5"
-                     Command="{Binding QuickFoodLogCommand}"/>
+                <Button Content="Food Search" Width="150" Height="40" Margin="5"
+                     Command="{Binding NavigateToFoodSearchCommand}"/>
                 
-                <Button Content="Clear Daily Log" Width="120" Height="40" Margin="5"
+                <Button Content="Clear Log" Width="150" Height="40" Margin="5"
                      Command="{Binding ClearDailyLogCommand}"/>
 
             </WrapPanel>
