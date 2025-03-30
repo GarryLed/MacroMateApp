@@ -39,13 +39,11 @@
         <!-- save goals button  -->
         <Button Grid.Row="2" Content="Save Goals"
                 Command="{Binding SaveGoalsCommand}"
-                Background="DarkGreen"
+                Background="{StaticResource CTAButtonBrush}" 
                 Foreground="White"
                 FontWeight="Bold"
-                Width="150"
-                Height="40"
-                HorizontalAlignment="Center"
-                Margin="0,10"/>
+                Width="250"
+                Height="35"/>
     </Grid>
         </ScrollViewer>
 </Page>

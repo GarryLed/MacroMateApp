@@ -32,7 +32,11 @@
                          VerticalAlignment="Center"
                          Padding="5"/>
                     <Button Content="Search" Command="{Binding SearchCommand}" 
-                        Margin="10,0,0,0" Width="100" Height="30"/>
+                        Margin="10,0,0,0" Width="100" 
+                        Background="{StaticResource CTAButtonBrush}" 
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Height="35"/>
                 </StackPanel>
             </StackPanel>
 
@@ -87,9 +91,10 @@
                     Command="{Binding AddToLogCommand}" 
                     Margin="10,0,0,0"
                     Width="150"
-                    Background="DarkGreen"
-                    Foreground="White"
-                    FontWeight="SemiBold"/>
+                     Background="{StaticResource CTAButtonBrush}" 
+                     Foreground="White"
+                     FontWeight="Bold"
+                     Height="35"/>
             </StackPanel>
         </Grid>
     </ScrollViewer>

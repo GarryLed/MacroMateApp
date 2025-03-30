@@ -43,12 +43,24 @@
             <!-- App Background -->
             <SolidColorBrush x:Key="AppBackgroundBrush" Color="#EEF5F9"/>
 
-
+                
             <!-- Sky Blue Navbar -->
-            <SolidColorBrush x:Key="NavbarBackgroundBrush" Color="#38BDF8"/>
+            <SolidColorBrush x:Key="NavbarBackgroundBrush" Color="#3ABEF9"/>
                 
             <!-- Dark Text -->
-            <SolidColorBrush x:Key="TextBrush" Color="#111827"/>
+            <SolidColorBrush x:Key="TextBrush" Color="#1F2937" />
+                
+                <!-- CTA Buttons -->
+            <SolidColorBrush x:Key="CTAButtonBrush" Color="#FBBF24" />
+                
+                <!-- Accent colours -->
+            <SolidColorBrush x:Key="AccentBrush" Color="#34D399" />
+                
+                <!-- Delete Buttons -->
+            <SolidColorBrush x:Key="DeleteButtonBrush" Color="#EF4444" />
+            
+
+
         </ResourceDictionary>
    
 

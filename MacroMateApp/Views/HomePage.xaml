@@ -49,20 +49,19 @@
             </StackPanel>
 
             <!-- Display Daily totals -->
-
             <StackPanel Grid.Row="3" Margin="10">
-                <TextBlock Text="Daily Totals" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Text="Daily Totals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
 
-                <TextBlock Text="Total Calories:" Margin="0,5,0,0"/>
+                <TextBlock Text="Total Calories:" FontWeight="SemiBold" />
                 <TextBlock Text="{Binding DailyTotals.TotalCalories}" Margin="5"/>
 
-                <TextBlock Text="Protein (g)" Margin="0,5,0,0"/>
+                <TextBlock Text="Protein (g)" FontWeight="SemiBold"/>
                 <TextBlock Text="{Binding DailyTotals.TotalProtein}" Margin="5"/>
 
-                <TextBlock Text="Carbs (g)" Margin="0,5,0,0"/>
+                <TextBlock Text="Carbs (g)" FontWeight="SemiBold"/>
                 <TextBlock Text="{Binding DailyTotals.TotalCarbs}" Margin="5"/>
 
-                <TextBlock Text="Fats (g)" Margin="0,5,0,0"/>
+                <TextBlock Text="Fats (g)" FontWeight="SemiBold"/>
                 <TextBlock Text="{Binding DailyTotals.TotalFats}" Margin="5"/>
             </StackPanel>
 

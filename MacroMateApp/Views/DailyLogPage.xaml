@@ -73,23 +73,24 @@
                     <ComboBoxItem Content="Snacks"/>
                 </ComboBox>
 
-                <!-- Add food button -->
-                <Button Content="Add Food" 
-            Command="{Binding AddItemCommand}" 
-            Background="Green" 
-            Foreground="White"
-            FontWeight="Bold"
-            Height="35"/>
-            </StackPanel>
+                    <!-- Add food button -->
+                    <Button Content="Add Food" 
+        Command="{Binding AddItemCommand}" 
+        Background="{StaticResource CTAButtonBrush}" 
+        Foreground="White"
+        FontWeight="Bold"
+        Height="35"/>
+
+                </StackPanel>
         </StackPanel>
 
-        <TextBlock Grid.Row="3" Text="Logged Meals for today" FontSize="18" FontWeight="Bold"  Margin="20,20,20,20"/>
+        <TextBlock Grid.Row="3" Text="Logged Meals for today" FontSize="20" FontWeight="Bold"  Margin="20,20,20,20"/>
        
         <!-- Food Log sections  -->
         <TabControl Grid.Row="3" Margin="40">
             
             <!-- Breakfast -->
-            <TabItem Header="Breakfast">
+                <TabItem Header="Breakfast" FontWeight="Bold">
                 <ListView ItemsSource="{Binding BreakfastLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
@@ -103,7 +104,7 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Header="Serving Size" DisplayMemberBinding="{Binding ServingSize}" Width="150"/>
+                                <GridViewColumn Header="Serving Size"  DisplayMemberBinding="{Binding ServingSize}" Width="150"/>
                                 <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="150"/>
                             <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="150"/>
                             <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="150"/>
@@ -113,10 +114,13 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                        <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}">
-                                            
-                                        </Button>
-                                    </DataTemplate>
+                                            <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}"
+                                                Background="{StaticResource DeleteButtonBrush}" 
+                                                Foreground="White"
+                                                FontWeight="Bold"
+                                                Height="35">
+                                            </Button>
+                                        </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                                 
                             </GridViewColumn>
@@ -125,7 +129,7 @@
                 </ListView>
             </TabItem>
             <!-- Lunch -->
-            <TabItem Header="Lunch">
+                <TabItem Header="Lunch" FontWeight="Bold">
                 <ListView ItemsSource="{Binding LunchLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
@@ -149,9 +153,12 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                        <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}">
-
-                                        </Button>
+                                            <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}"
+                                                Background="{StaticResource DeleteButtonBrush}" 
+                                                Foreground="White"
+                                                FontWeight="Bold"
+                                                Height="35">
+                                            </Button>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
 
@@ -161,7 +168,7 @@
                 </ListView>
             </TabItem>
             <!-- Dinner -->
-            <TabItem Header="Dinner">
+                <TabItem Header="Dinner" FontWeight="Bold">
                 <ListView ItemsSource="{Binding DinnerLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
@@ -185,10 +192,13 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                        <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}">
-
-                                        </Button>
-                                    </DataTemplate>
+                                            <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}"
+                                                Background="{StaticResource DeleteButtonBrush}" 
+                                                Foreground="White"
+                                                FontWeight="Bold"
+                                                Height="35">
+                                            </Button>
+                                        </DataTemplate>
 
                                 </GridViewColumn.CellTemplate>
 
@@ -200,7 +210,7 @@
 
 
             <!-- Snacks-->
-            <TabItem Header="Snacks">
+                <TabItem Header="Snacks" FontWeight="Bold">
                 <ListView ItemsSource="{Binding SnacksLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
@@ -224,10 +234,13 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                        <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}">
-
-                                        </Button>
-                                    </DataTemplate>
+                                            <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}"
+                                                Background="{StaticResource DeleteButtonBrush}" 
+                                                Foreground="White"
+                                                FontWeight="Bold"
+                                                Height="35">
+                                            </Button>
+                                        </DataTemplate>
                                 </GridViewColumn.CellTemplate>
 
                             </GridViewColumn>
@@ -240,18 +253,18 @@
         
         <!-- Display Daily totals -->
         <StackPanel Grid.Row="4" Margin="10">
-            <TextBlock Text="Daily Totals" FontSize="18" FontWeight="Bold"  Margin="0,20,0,20"/>
+            <TextBlock Text="Daily Totals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
 
-            <TextBlock Text="Total Calories:" />
+            <TextBlock Text="Total Calories:" FontWeight="SemiBold" />
             <TextBlock Text="{Binding DailyTotals.TotalCalories}" Margin="5"/>
 
-            <TextBlock Text="Protein (g)" />
+                <TextBlock Text="Protein (g)" FontWeight="SemiBold"/>
             <TextBlock Text="{Binding DailyTotals.TotalProtein}" Margin="5"/>
 
-            <TextBlock Text="Carbs (g)" />
+                <TextBlock Text="Carbs (g)" FontWeight="SemiBold"/>
             <TextBlock Text="{Binding DailyTotals.TotalCarbs}" Margin="5"/>
 
-            <TextBlock Text="Fats (g)" />
+                <TextBlock Text="Fats (g)" FontWeight="SemiBold"/>
             <TextBlock Text="{Binding DailyTotals.TotalFats}" Margin="5"/>
         </StackPanel>
 
