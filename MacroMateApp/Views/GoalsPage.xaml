@@ -12,8 +12,9 @@
         <Grid Margin="20" Background="{StaticResource AppBackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <!-- Header -->
@@ -30,10 +31,10 @@
             <TextBox Text="{Binding Goals.ProteinGoal, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
             <TextBlock Text="Carbohydrates Goal (g):" FontWeight="SemiBold"/>
-            <TextBox Text="{Binding Goals.CarbsGoal, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            <TextBox Text="{Binding Goals.CarbGoal, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
             <TextBlock Text="Fats Goal (g):" FontWeight="SemiBold"/>
-            <TextBox Text="{Binding Goals.FatsGoal, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,20"/>
+            <TextBox Text="{Binding Goals.FatGoal, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,20"/>
         </StackPanel>
 
         <!-- save goals button  -->
@@ -44,6 +45,8 @@
                 FontWeight="Bold"
                 Width="250"
                 Height="35"/>
-    </Grid>
+            
+            
+        </Grid>
         </ScrollViewer>
 </Page>

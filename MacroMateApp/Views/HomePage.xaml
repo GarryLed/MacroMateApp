@@ -17,6 +17,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!-- Welcome Message -->
@@ -50,7 +51,7 @@
 
             <!-- Display Daily totals -->
             <StackPanel Grid.Row="3" Margin="10">
-                <TextBlock Text="Daily Totals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
+                <TextBlock Text="Toays Totals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
 
                 <TextBlock Text="Total Calories:" FontWeight="SemiBold" />
                 <TextBlock Text="{Binding DailyTotals.TotalCalories}" Margin="5"/>
@@ -65,8 +66,21 @@
                 <TextBlock Text="{Binding DailyTotals.TotalFats}" Margin="5"/>
             </StackPanel>
 
+            <!-- Display goals -->
+            <StackPanel Grid.Row="4" Margin="10">
+                <TextBlock Text="Your Daily Nutrition Goals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
+                <TextBlock Text="Calories Goal:" FontWeight="SemiBold" />
+                <TextBlock Text="{Binding Goals.CaloriesGoal}" Margin="5"/>
+                <TextBlock Text="Protein Goal (g)" FontWeight="SemiBold"/>
+                <TextBlock Text="{Binding Goals.ProteinGoal}" Margin="5"/>
+                <TextBlock Text="Carbs Goal (g)" FontWeight="SemiBold"/>
+                <TextBlock Text="{Binding Goals.CarbGoal}" Margin="5"/>
+                <TextBlock Text="Fats Goal (g)" FontWeight="SemiBold"/>
+                <TextBlock Text="{Binding Goals.FatGoal}" Margin="5"/>
+            </StackPanel>
+
             <!-- Buttons for quick navigation -->
-            <StackPanel Grid.Row="4" HorizontalAlignment="Center" Margin="10">
+            <StackPanel Grid.Row="5" HorizontalAlignment="Center" Margin="10">
                 <TextBlock Text="Quick Access" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10"/>
 
                 <WrapPanel HorizontalAlignment="Center" Margin="10">

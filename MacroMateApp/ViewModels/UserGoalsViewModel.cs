@@ -1,57 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using MacroMateApp.Models;
 using MacroMateApp.Data;
-using System.Windows.Input;
-
 
 namespace MacroMateApp.ViewModels
 {
-    public class UserGoalsViewModel
+    public class UserGoalsViewModel : INotifyPropertyChanged
     {
-        public UserGoals Goals { get; set; } = new UserGoals();
+        private UserGoals _goals;
+        public UserGoals Goals
+        {
+            get => _goals;
+            set
+            {
+                _goals = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public ICommand SaveGoalsCommand { get; } // biding for saving goals 
+        public ICommand SaveGoalsCommand { get; }
 
         public UserGoalsViewModel()
         {
             SaveGoalsCommand = new RelayCommand(SaveGoals);
-            //LoadGoals; 
+            LoadGoals(); // Load goals from DB on view model init
         }
 
-        // Save goals method 
         private void SaveGoals()
         {
             using (var db = new ApplicationDbContext())
             {
-                var currentGoals = db.UserGoals.FirstOrDefault();
+                var existingGoals = db.UserGoals.FirstOrDefault();
 
-                if (currentGoals != null)
+                if (existingGoals != null)
                 {
-                    currentGoals.CaloriesGoal = Goals.CaloriesGoal;
-                    currentGoals.ProteinGoal = Goals.ProteinGoal;
-                    currentGoals.CarbGoal = Goals.CarbGoal;
-                    currentGoals.FatGoal = Goals.FatGoal;
+                    existingGoals.CaloriesGoal = Goals.CaloriesGoal;
+                    existingGoals.ProteinGoal = Goals.ProteinGoal;
+                    existingGoals.CarbGoal = Goals.CarbGoal;
+                    existingGoals.FatGoal = Goals.FatGoal;
                 }
                 else
                 {
                     db.UserGoals.Add(Goals);
                 }
 
-                db.SaveChanges(); // save chages to database 
+                db.SaveChanges();
             }
+
+            // Re-fetch from DB to update the view (optional but clean)
+            LoadGoals();
         }
 
-        // lodading goals 
         private void LoadGoals()
         {
             using (var db = new ApplicationDbContext())
             {
                 Goals = db.UserGoals.FirstOrDefault() ?? new UserGoals();
             }
+        }
+
+        // Enable property change notifications for WPF bindings
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }
