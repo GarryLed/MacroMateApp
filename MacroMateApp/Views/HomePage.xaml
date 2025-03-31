@@ -33,50 +33,50 @@
                 <TextBlock Text="Today's Progress" FontSize="18" FontWeight="Bold"/>
 
                 <TextBlock Text="Calories" Margin="0,5,0,0"/>
-                <ProgressBar Minimum="0" Maximum="{Binding UserGoals.CalorieGoal}" 
-                         Value="{Binding DailyTotals.TotalCalories}" Height="20"/>
+                <ProgressBar Minimum="0" Maximum="{Binding GoalsVM.Goals.CaloriesGoal}" 
+                         Value="{Binding LogVM.DailyTotals.TotalCalories}" Height="20"/>
 
                 <TextBlock Text="Protein (g)" Margin="0,5,0,0"/>
-                <ProgressBar Minimum="0" Maximum="{Binding UserGoals.ProteinGoal}" 
-                         Value="{Binding DailyTotals.TotalProtein}" Height="20"/>
+                <ProgressBar Minimum="0" Maximum="{Binding GoalsVM.Goals.ProteinGoal}" 
+                         Value="{Binding LogVM.DailyTotals.TotalProtein}" Height="20"/>
 
                 <TextBlock Text="Carbs (g)" Margin="0,5,0,0"/>
-                <ProgressBar Minimum="0" Maximum="{Binding UserGoals.CarbGoal}" 
-                         Value="{Binding DailyTotals.TotalCarbs}" Height="20"/>
+                <ProgressBar Minimum="0" Maximum="{Binding GoalsVM.Goals.CarbGoal}" 
+                         Value="{Binding LogVM.DailyTotals.TotalCarbs}" Height="20"/>
 
                 <TextBlock Text="Fats (g)" Margin="0,5,0,0"/>
-                <ProgressBar Minimum="0" Maximum="{Binding UserGoals.FatGoal}" 
-                         Value="{Binding DailyTotals.TotalFats}" Height="20"/>
+                <ProgressBar Minimum="0" Maximum="{Binding GoalsVM.Goals.FatGoal}" 
+                         Value="{Binding LogVM.DailyTotals.TotalFats}" Height="20"/>
             </StackPanel>
 
             <!-- Display Daily totals -->
             <StackPanel Grid.Row="3" Margin="10">
-                <TextBlock Text="Toays Totals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
+                <TextBlock Text="Toays Nutrition Totals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
 
                 <TextBlock Text="Total Calories:" FontWeight="SemiBold" />
-                <TextBlock Text="{Binding DailyTotals.TotalCalories}" Margin="5"/>
+                <TextBlock Text="{Binding LogVM.DailyTotals.TotalCalories}" Margin="5"/>
 
                 <TextBlock Text="Protein (g)" FontWeight="SemiBold"/>
-                <TextBlock Text="{Binding DailyTotals.TotalProtein}" Margin="5"/>
+                <TextBlock Text="{Binding LogVM.DailyTotals.TotalProtein}" Margin="5"/>
 
                 <TextBlock Text="Carbs (g)" FontWeight="SemiBold"/>
-                <TextBlock Text="{Binding DailyTotals.TotalCarbs}" Margin="5"/>
+                <TextBlock Text="{Binding LogVM.DailyTotals.TotalCarbs}" Margin="5"/>
 
                 <TextBlock Text="Fats (g)" FontWeight="SemiBold"/>
-                <TextBlock Text="{Binding DailyTotals.TotalFats}" Margin="5"/>
+                <TextBlock Text="{Binding LogVM.DailyTotals.TotalFats}" Margin="5"/>
             </StackPanel>
 
             <!-- Display goals -->
             <StackPanel Grid.Row="4" Margin="10">
                 <TextBlock Text="Your Daily Nutrition Goals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
                 <TextBlock Text="Calories Goal:" FontWeight="SemiBold" />
-                <TextBlock Text="{Binding Goals.CaloriesGoal}" Margin="5"/>
+                <TextBlock Text="{Binding GoalsVM.Goals.CaloriesGoal}" Margin="5"/>
                 <TextBlock Text="Protein Goal (g)" FontWeight="SemiBold"/>
-                <TextBlock Text="{Binding Goals.ProteinGoal}" Margin="5"/>
+                <TextBlock Text="{Binding GoalsVM.Goals.ProteinGoal}" Margin="5"/>
                 <TextBlock Text="Carbs Goal (g)" FontWeight="SemiBold"/>
-                <TextBlock Text="{Binding Goals.CarbGoal}" Margin="5"/>
+                <TextBlock Text="{Binding GoalsVM.Goals.CarbGoal}" Margin="5"/>
                 <TextBlock Text="Fats Goal (g)" FontWeight="SemiBold"/>
-                <TextBlock Text="{Binding Goals.FatGoal}" Margin="5"/>
+                <TextBlock Text="{Binding GoalsVM.Goals.FatGoal}" Margin="5"/>
             </StackPanel>
 
             <!-- Buttons for quick navigation -->

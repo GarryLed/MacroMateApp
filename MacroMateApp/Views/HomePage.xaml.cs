@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MacroMateApp.ViewModels;
 
 namespace MacroMateApp.Views
 {
@@ -23,8 +24,11 @@ namespace MacroMateApp.Views
         public HomePage()
         {
             InitializeComponent();
-            // uisng the Shared view model to share data to various pages 
-            DataContext = App.SharedDailyLogViewModel;
+            DataContext = new HomePageViewModel
+            {
+                GoalsVM = App.SharedUserGoalsViewModel,
+                LogVM = App.SharedDailyLogViewModel
+            };
         }
     }
 }

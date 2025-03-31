@@ -50,7 +50,7 @@ namespace MacroMateApp.ViewModels
                 db.SaveChanges();
             }
 
-            // Re-fetch from DB to update the view (optional but clean)
+            // Re-fetch from DB 
             LoadGoals();
         }
 
