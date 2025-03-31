@@ -20,8 +20,17 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+
+
+
+            </Grid.ColumnDefinitions>
+
             <!-- Welcome Message -->
-            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,20">
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0,20,0,20">
                 <TextBlock Text="Welcome to MacroMate!" FontSize="28" FontWeight="Bold"/>
                 <TextBlock Text="Track your daily nutrition and stay on top of your fitness goals"
                        FontSize="16" FontStyle="Italic" Margin="0,5,0,0"/>
@@ -29,7 +38,7 @@
 
 
             <!-- Daily Macro Progress -->
-            <StackPanel Grid.Row="2" Margin="10">
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Margin="10">
                 <TextBlock Text="Today's Progress" FontSize="18" FontWeight="Bold"/>
 
                 <TextBlock Text="Calories" Margin="0,5,0,0"/>
@@ -50,8 +59,8 @@
             </StackPanel>
 
             <!-- Display Daily totals -->
-            <StackPanel Grid.Row="3" Margin="10">
-                <TextBlock Text="Toays Nutrition Totals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
+            <StackPanel Grid.Row="3" Grid.Column="2" Margin="10">
+                <TextBlock Text="Today's Nutrition Totals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
 
                 <TextBlock Text="Total Calories:" FontWeight="SemiBold" />
                 <TextBlock Text="{Binding LogVM.DailyTotals.TotalCalories}" Margin="5"/>
@@ -67,7 +76,7 @@
             </StackPanel>
 
             <!-- Display goals -->
-            <StackPanel Grid.Row="4" Margin="10">
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="4" Margin="10">
                 <TextBlock Text="Your Daily Nutrition Goals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
                 <TextBlock Text="Calories Goal:" FontWeight="SemiBold" />
                 <TextBlock Text="{Binding GoalsVM.Goals.CaloriesGoal}" Margin="5"/>
@@ -80,15 +89,27 @@
             </StackPanel>
 
             <!-- Buttons for quick navigation -->
-            <StackPanel Grid.Row="5" HorizontalAlignment="Center" Margin="10">
+            <StackPanel Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="10">
                 <TextBlock Text="Quick Access" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10"/>
 
-                <WrapPanel HorizontalAlignment="Center" Margin="10">
-                    <Button Content="Food Search" Width="120" Height="40" Margin="5"
-                        Command="{Binding NavigateFoodSearchCommand}"/>
+                <WrapPanel HorizontalAlignment="Center" Margin="10, 10, 10, 10">
+                    <Button Content="Food Search" 
+                        Command="{Binding NavigateFoodSearchCommand}"
+                             Background="{StaticResource CTAButtonBrush}" 
+                             Foreground="White"
+                             FontWeight="Bold"
+                                Width="120" 
+                             Height="35"/>
 
-                    <Button Content="View Log" Width="120" Height="40" Margin="5"
-                        Command="{Binding NavigateDailyLogCommand}"/>
+
+
+                    <Button Content="View Log" Margin="10, 10, 10, 10"
+                        Command="{Binding NavigateDailyLogCommand}"
+                            Background="{StaticResource CTAButtonBrush}" 
+                            Foreground="White"
+                            FontWeight="Bold"
+                               Width="120" 
+                            Height="35"/>
                 </WrapPanel>
             </StackPanel>
         </Grid>

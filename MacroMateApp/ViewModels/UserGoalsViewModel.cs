@@ -22,10 +22,12 @@ namespace MacroMateApp.ViewModels
         }
 
         public ICommand SaveGoalsCommand { get; }
+        public ICommand ClearGoalsCommand { get; }
 
         public UserGoalsViewModel()
         {
             SaveGoalsCommand = new RelayCommand(SaveGoals);
+            ClearGoalsCommand = new RelayCommand(ClearUserGoals);
             LoadGoals(); // Load goals from DB on view model init
         }
 
@@ -50,8 +52,7 @@ namespace MacroMateApp.ViewModels
                 db.SaveChanges();
             }
 
-            // Re-fetch from DB 
-            LoadGoals();
+            LoadGoals(); // Refresh the UI
         }
 
         private void LoadGoals()
@@ -62,7 +63,25 @@ namespace MacroMateApp.ViewModels
             }
         }
 
-        // Enable property change notifications for WPF bindings
+        /// <summary>
+        /// Deletes the current UserGoals from the database and resets the local Goals instance.
+        /// </summary>
+        public void ClearUserGoals()
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var existingGoals = db.UserGoals.FirstOrDefault();
+                if (existingGoals != null)
+                {
+                    db.UserGoals.Remove(existingGoals);
+                    db.SaveChanges();
+                }
+            }
+
+            Goals = new UserGoals(); // Reset the property so UI updates
+        }
+
+        // Notify UI of property changes
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {

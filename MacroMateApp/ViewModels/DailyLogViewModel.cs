@@ -59,6 +59,8 @@ namespace MacroMateApp.ViewModels
         public double Fats { get; set; }
         public string SelectedMeal { get; set; } = "Breakfast"; // Default selection
 
+        public DateTime Date { get; set; } = DateTime.Today; // Todays date for daily tracking
+
         public string ImageUrl { get; set; } // url to the food items image
 
 
