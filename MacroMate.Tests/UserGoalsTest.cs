@@ -26,10 +26,11 @@ namespace MacroMate.Tests
             var fatGoal = userGoals.FatGoal;
 
             // Assert
-            Assert.AreEqual(2000, caloriesGoal);
-            Assert.AreEqual(150, proteinGoal);
-            Assert.AreEqual(250, carbGoal);
-            Assert.AreEqual(70, fatGoal);
+            Assert.Equals(2000, caloriesGoal);
+            Assert.Equals(150, proteinGoal);
+            Assert.Equals(250, carbGoal);
+            Assert.Equals(70, fatGoal);
+            
         }
     }
 }
