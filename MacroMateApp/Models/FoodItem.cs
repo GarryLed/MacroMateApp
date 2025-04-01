@@ -15,15 +15,15 @@ namespace MacroMateApp.Models
         [Key] 
         public int FoodId { get; set; } // primary key 
 
-        [Required] 
-        public string Name { get; set; } // Food Item name is required for 
+        [Required]
+        public string Name { get; set; } = "";// Food Item name is required for 
 
         [Required]
-        public double Calories { get; set; }
+        public double Calories { get; set; } = 0;
 
-        public double Protein { get; set; }
-        public double Carbs { get; set; }
-        public double Fats { get; set; }
+        public double Protein { get; set; } = 0;
+        public double Carbs { get; set; } = 0;
+        public double Fats { get; set; } = 0;
         public string ServingSize { get; set; } = "1 serving"; // set default serving size to 1 serving 
 
         public string MealType { get; set; } = "Breakfast"; // set defaule meal type to Breakfast 

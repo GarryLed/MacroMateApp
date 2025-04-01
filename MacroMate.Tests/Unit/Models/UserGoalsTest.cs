@@ -1,6 +1,6 @@
 ﻿using MacroMateApp.Models;
 
-namespace MacroMate.Tests
+namespace MacroMate.Tests.Unit.Models
 {
     /// <summary>
     /// Test class for UserGoals
