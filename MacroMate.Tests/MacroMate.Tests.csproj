@@ -32,7 +32,6 @@
   <ItemGroup>
     <Folder Include="Integration\Data\" />
     <Folder Include="Integration\Services\" />
-    <Folder Include="Unit\Services\" />
   </ItemGroup>
 
 </Project>
