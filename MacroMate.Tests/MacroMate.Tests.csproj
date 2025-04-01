@@ -33,7 +33,6 @@
     <Folder Include="Integration\Data\" />
     <Folder Include="Integration\Services\" />
     <Folder Include="Unit\Services\" />
-    <Folder Include="Unit\ViewModels\" />
   </ItemGroup>
 
 </Project>

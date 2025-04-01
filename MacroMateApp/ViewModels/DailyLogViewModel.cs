@@ -114,7 +114,7 @@ namespace MacroMateApp.ViewModels
         // methods 
 
         // Add food item 
-        private void AddFoodItem()
+        public void AddFoodItem()
         {
             //if (string.IsNullOrWhiteSpace(FoodName)) return;
 
