@@ -5,6 +5,7 @@ namespace MacroMate.Tests.Unit.Models
     /// <summary>
     /// Test class for UserGoals
     /// </summary>
+    [TestFixture]
     class UserGoalsTest
     {
         [Test]
@@ -40,8 +41,10 @@ namespace MacroMate.Tests.Unit.Models
             var userGoals = new UserGoals();
             var propertyChanged = false;
             userGoals.PropertyChanged += (sender, e) => propertyChanged = true;
+
             // Act
             userGoals.CaloriesGoal = 3000;
+
             // Assert
             Assert.That(propertyChanged, Is.True);
         }

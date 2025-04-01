@@ -53,15 +53,15 @@ namespace MacroMateApp.ViewModels
         // Temporary properties for user input
         
         public string FoodName { get; set; } = "";
-        public double Calories { get; set; }
-        public double Protein { get; set; }
-        public double Carbs { get; set; }
-        public double Fats { get; set; }
+        public double Calories { get; set; } = 0;
+        public double Protein { get; set; } = 0;
+        public double Carbs { get; set; } = 0;
+        public double Fats { get; set; } = 0;
         public string SelectedMeal { get; set; } = "Breakfast"; // Default selection
 
         public DateTime Date { get; set; } = DateTime.Today; // Todays date for daily tracking
 
-        public string ImageUrl { get; set; } // url to the food items image
+        public string ImageUrl { get; set; } = ""; // url to the food items image
 
 
 
@@ -159,7 +159,7 @@ namespace MacroMateApp.ViewModels
         }
 
         // add food item from search results
-        public void AddFromSearch(FoodItem item)
+        public void AddFoodItemFromSearch(FoodItem item)
         {
             
             switch (item.MealType)

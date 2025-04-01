@@ -14,6 +14,7 @@ namespace MacroMate.Tests.Unit.Models
         {
             // Arrange
             var foodItem = new FoodItem();
+
             // Act
             var name = foodItem.Name;
             var calories = foodItem.Calories;
@@ -21,6 +22,7 @@ namespace MacroMate.Tests.Unit.Models
             var carbs = foodItem.Carbs;
             var fats = foodItem.Fats;
             var imageUrl = foodItem.ImageUrl;
+
             // Assert
             Assert.That(name, Is.EqualTo(""));
             Assert.That(calories, Is.EqualTo(0));

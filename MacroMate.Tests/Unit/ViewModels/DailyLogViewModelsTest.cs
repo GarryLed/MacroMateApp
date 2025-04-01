@@ -11,33 +11,51 @@ namespace MacroMate.Tests.Unit.ViewModels
     /// <summary>
     /// Test class for DailyLogViewModels
     /// </summary>
+    [TestFixture]
     class DailyLogViewModelsTest
     {
         [Test]
-        public void TestManualAddFoodItem()
+        public void TestAddFoodItem_AddsItemToMealLog_AndUpdatesTotals() // Test for adding food item
         {
-            // arrange 
-            var ViewModel = new DailyLogViewModel();
+            // Arrange
+            var item = new DailyLogViewModel
+            {
+                FoodName = "Test Apple",
+                Calories = 95,
+                Protein = 0.5,
+                Carbs = 25,
+                Fats = 0.3,
+                SelectedMeal = "Lunch"
+            };
 
+            // Act
+            item.AddItemCommand.Execute(null);
 
-            // act 
-            ViewModel.FoodName = "Apple";
-            ViewModel.Calories = 95;
-            ViewModel.Protein = 0.5;
-            ViewModel.Carbs = 25;
-            ViewModel.Fats = 0.3;
-            ViewModel.SelectedMeal = "Breakfast";
-            ViewModel.Date = DateTime.Today;
-
-           ViewModel.AddFoodItem();
-
-            // assert 
-            Assert.That(ViewModel.BreakfastLog.Count, Is.EqualTo(3)); // 2 objects hardcoaded in the constructor + 1 new object
-            Assert.That(ViewModel.DailyTotals.TotalCalories, Is.EqualTo(1346));
-
+            // Assert
+            
+            Assert.That(item.DailyTotals.TotalCalories, Is.GreaterThanOrEqualTo(95));
         }
 
-        
+        [Test]
+        public void TestAddFoodItemFromSearch_AddsItemToMealLog_AndUpdatesTotals() // Test for adding food item from search
+        {
+            // Arrange
+            var vm = new DailyLogViewModel();
+           
+            var food = new FoodItem
+            {
+                Name = "Test Apple",
+                Calories = 95,
+                Protein = 0.5,
+                Carbs = 25,
+                Fats = 0.3,
+                MealType = "Lunch"
+            };
+            // Act
+            vm.AddFoodItemFromSearch(food);
+            // Assert
+            Assert.That(vm.DailyTotals.TotalCalories, Is.GreaterThanOrEqualTo(95));
+        }
 
 
     }

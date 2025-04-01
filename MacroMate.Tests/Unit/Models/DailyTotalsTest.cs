@@ -7,6 +7,11 @@ using MacroMateApp.Models;
 
 namespace MacroMate.Tests.Unit.Models
 {
+    /// <summary>
+    /// Test class for DailyTotals
+    /// </summary>
+
+    [TestFixture]
     class DailyTotalsTest
     {
         [Test]
@@ -79,8 +84,10 @@ namespace MacroMate.Tests.Unit.Models
             var totals = new DailyTotals();
             var propertyChanged = false;
             totals.PropertyChanged += (sender, e) => propertyChanged = true;
+
             // act
             totals.TotalProtein = 200;
+
             // assert
             Assert.That(propertyChanged, Is.True);
         }
@@ -92,8 +99,10 @@ namespace MacroMate.Tests.Unit.Models
             var totals = new DailyTotals();
             var propertyChanged = false;
             totals.PropertyChanged += (sender, e) => propertyChanged = true;
+
             // act
             totals.TotalCarbs = 300;
+
             // assert
             Assert.That(propertyChanged, Is.True);
         }

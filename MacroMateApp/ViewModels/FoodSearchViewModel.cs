@@ -135,7 +135,7 @@ namespace MacroMateApp.ViewModels
             };
 
             // add the new item to the shared daily log
-            _dailyLogViewModel.AddFromSearch(newFoodItem);
+            _dailyLogViewModel.AddFoodItemFromSearch(newFoodItem);
         }
         
 
