@@ -25,8 +25,9 @@
                 
             <!-- Dark Text -->
             <SolidColorBrush x:Key="TextBrush" Color="#1F2937" />
-                
-                <!-- CTA Buttons -->
+
+
+            <!-- CTA Buttons -->
             <SolidColorBrush x:Key="CTAButtonBrush" Color="#FBBF24" />
                 
                 <!-- Accent colours -->

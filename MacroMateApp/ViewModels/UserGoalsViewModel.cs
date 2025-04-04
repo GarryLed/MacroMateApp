@@ -24,11 +24,16 @@ namespace MacroMateApp.ViewModels
         public ICommand SaveGoalsCommand { get; }
         public ICommand ClearGoalsCommand { get; }
 
-        public UserGoalsViewModel()
+        private readonly ApplicationDbContext _db;
+
+        public UserGoalsViewModel(ApplicationDbContext db)
         {
+            _db = db; // Dependency injection for the database context
+
             SaveGoalsCommand = new RelayCommand(SaveGoals);
             ClearGoalsCommand = new RelayCommand(ClearUserGoals);
             LoadGoals(); // Load goals from DB on view model init
+            
         }
 
         private void SaveGoals()

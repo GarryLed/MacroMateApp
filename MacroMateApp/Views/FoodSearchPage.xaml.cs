@@ -26,7 +26,9 @@ namespace MacroMateApp.Views
             InitializeComponent();
             //DataContext = new FoodSearchViewModel();
            // DataContext = App.SharedFoodSearchViewModel;
-            DataContext = new FoodSearchViewModel(App.SharedDailyLogViewModel);
+           // DataContext = new FoodSearchViewModel(App.SharedDailyLogViewModel);
+            DataContext = new FoodSearchViewModel(App.SharedNutritionService, App.SharedDailyLogViewModel);
+
         }
     }
 }

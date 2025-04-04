@@ -24,7 +24,7 @@ namespace MacroMateApp.Views
         public GoalsPage()
         {
             InitializeComponent();
-            DataContext = new UserGoalsViewModel();
+            DataContext = App.SharedUserGoalsViewModel; // set the data context to the shared user goals view model
         }
     }
 }

@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 
 namespace MacroMateApp.Services
 {
-    public class NutritionApiService 
+    public class NutritionApiService : INutritionApiService // implementing the INutritionApiService interface for testing 
     {
         private readonly string appId = "30552731";
         private readonly string appKey = "2198f3549a810314e56105169b3c8c9e";

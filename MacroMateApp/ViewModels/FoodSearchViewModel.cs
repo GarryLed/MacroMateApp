@@ -32,11 +32,14 @@ namespace MacroMateApp.ViewModels
         // event for notifying UI anytime a property changes
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        private readonly INutritionApiService _nutritionApiService; // interface for testing
+
         // constructor that takes a DailyLogViewModel as a parameter so it can be used to add food items to the daily log
-        public FoodSearchViewModel(DailyLogViewModel dailyLogViewModel)
+        public FoodSearchViewModel(INutritionApiService _nutritionService, DailyLogViewModel dailyLogViewModel)
         {
             _dailyLogViewModel = dailyLogViewModel; // Store reference for use in AddSelectedFoodToLog
-            _nutritionService = new NutritionApiService(); // create a new instance of the API service
+                                                    // _nutritionService = new NutritionApiService(); // removed to decouple the view model from the service
+            _nutritionApiService = _nutritionService; // assign the nutrition service to the interface for testing
             FoodResults = new ObservableCollection<FoodItem>(); // create a new instance of the observable collection that will store the search results 
 
             // command for triggering a food search
@@ -138,12 +141,6 @@ namespace MacroMateApp.ViewModels
             _dailyLogViewModel.AddFoodItemFromSearch(newFoodItem);
         }
         
-
-     
-
-       
-
-
         // notify the UI of property changes
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
