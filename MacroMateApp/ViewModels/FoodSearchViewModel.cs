@@ -139,53 +139,9 @@ namespace MacroMateApp.ViewModels
         }
         
 
-        // add the selected food item to the appropriate meal log
+     
 
-        /*
-        private void AddSelectedFoodToLog(FoodItem foodresults)
-        {
-            if (foodresults == null)
-                return;
-
-            // create a new FoodItem object for logging the food 
-            var newFoodItem = new FoodItem
-            {
-                Name = foodresults.Name,
-                Calories = foodresults.Calories,
-                Protein = foodresults.Protein,
-                Carbs = foodresults.Carbs,
-                Fats = foodresults.Fats,
-                MealType = SelectedMeal, // broken and need to be fixed 
-                Date = DateTime.Today
-            };
-
-            // add the new item to the shared daily log
-            _dailyLogViewModel.AddFromSearch(newFoodItem);
-        }
-        */
-        //====================
-        /*
-        private void AddSelectedFoodToLog()
-        {
-            if (SelectedFoodItem == null)
-                return;
-
-            // Copy properties to the shared DailyLogViewModel's inputs
-            _dailyLogViewModel.FoodName = SelectedFoodItem.Name;
-            _dailyLogViewModel.Calories = SelectedFoodItem.Calories;
-            _dailyLogViewModel.Protein = SelectedFoodItem.Protein;
-            _dailyLogViewModel.Carbs = SelectedFoodItem.Carbs;
-            _dailyLogViewModel.Fats = SelectedFoodItem.Fats;
-            _dailyLogViewModel.SelectedMeal = SelectedMeal;
-
-            // Call the shared AddItemCommand
-            _dailyLogViewModel.AddItemCommand.Execute(null);
-        }
-
-        */
-
-
-        //=====================
+       
 
 
         // notify the UI of property changes

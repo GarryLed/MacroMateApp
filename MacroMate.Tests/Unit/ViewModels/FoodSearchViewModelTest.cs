@@ -14,5 +14,7 @@ namespace MacroMate.Tests.Unit.ViewModels
     [TestFixture]
     class FoodSearchViewModelTest
     {
+
+
     }
 }
