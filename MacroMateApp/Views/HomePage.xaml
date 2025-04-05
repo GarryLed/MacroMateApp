@@ -98,7 +98,7 @@
                              Background="{StaticResource CTAButtonBrush}" 
                              Foreground="White"
                              FontWeight="Bold"
-                                Width="120" 
+                             Width="250" 
                              Height="35"/>
 
 
@@ -108,7 +108,7 @@
                             Background="{StaticResource CTAButtonBrush}" 
                             Foreground="White"
                             FontWeight="Bold"
-                               Width="120" 
+                            Width="250" 
                             Height="35"/>
                 </WrapPanel>
             </StackPanel>

@@ -36,6 +36,7 @@ namespace MacroMateApp.ViewModels
             
         }
 
+        // save user goals to database 
         private void SaveGoals()
         {
             using (var db = new ApplicationDbContext())

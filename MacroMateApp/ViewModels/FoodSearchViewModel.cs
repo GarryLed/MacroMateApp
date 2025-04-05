@@ -76,10 +76,8 @@ namespace MacroMateApp.ViewModels
                 _selectedFoodItem = value;
                 OnPropertyChanged(); // update the ui with the selected food item
 
-                // Command that allows the AddToLogCommand to re-evaluate if it can execute (based on selection)
                 ((RelayCommand)AddToLogCommand).RaiseCanExecuteChanged();
 
-                System.Diagnostics.Debug.WriteLine($"Selected: {_selectedFoodItem?.Name} | {_selectedFoodItem?.Calories} kcal");
             }
         }
 
@@ -106,7 +104,7 @@ namespace MacroMateApp.ViewModels
             if (string.IsNullOrWhiteSpace(SearchQuery))
                 return; 
 
-            var results = await _nutritionService.SearchFood(SearchQuery); // call the api service and await the results
+            var results = await _nutritionApiService.SearchFood(SearchQuery); // call the api service and await the results
             FoodResults.Clear(); // clear out any existing results
 
             // add new results to the observable collection
@@ -126,7 +124,6 @@ namespace MacroMateApp.ViewModels
             // create a new FoodItem object for logging the food 
             var newFoodItem = new FoodItem
             {
-                // TEMP RESULT BUT THE CODE WORKS 
                 Name = FoodResults[0].Name,
                 Calories = FoodResults[0].Calories,
                 Protein = FoodResults[0].Protein,
@@ -141,6 +138,7 @@ namespace MacroMateApp.ViewModels
             _dailyLogViewModel.AddFoodItemFromSearch(newFoodItem);
         }
         
+
         // notify the UI of property changes
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

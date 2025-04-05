@@ -23,6 +23,8 @@ namespace MacroMateApp.Views
     {
         public HomePage()
         {
+
+
             InitializeComponent();
             DataContext = new HomePageViewModel
             {

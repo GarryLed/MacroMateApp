@@ -276,13 +276,22 @@
             <TextBlock Text="Quick Access" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10"/>
 
             <WrapPanel HorizontalAlignment="Center" Margin="10">
-                <Button Content="Food Search" Width="150" Height="40" Margin="5"
-                     Command="{Binding NavigateToFoodSearchCommand}"/>
-                
-                <Button Content="Clear Log" Width="150" Height="40" Margin="5"
-                     Command="{Binding ClearDailyLogCommand}"/>
+                <Button Content="Food Search" Margin="5"
+                     Command="{Binding NavigateToFoodSearchCommand}"
+                         Background="{StaticResource CTAButtonBrush}" 
+                         Foreground="White"
+                         FontWeight="Bold"
+                         Width="250"
+                         Height="35"/>
 
-            </WrapPanel>
+                    <Button Content="Clear Log" Margin="5"
+                     Command="{Binding ClearDailyLogCommand}"
+                         Background="{StaticResource DeleteButtonBrush}" 
+                         Foreground="White"
+                         FontWeight="Bold"
+                         Width="250"
+                         Height="35"/>
+                </WrapPanel>
         </StackPanel>
     </Grid>
     </ScrollViewer>

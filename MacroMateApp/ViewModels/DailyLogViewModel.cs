@@ -43,13 +43,6 @@ namespace MacroMateApp.ViewModels
         public ICommand DeleteItemCommand { get; }
         public ICommand ClearDailyLogCommand { get; }
 
-        // properties for calculating daily totals 
-
-        // calculate total calories 
-
-        // Use DailyTotals class to store daily totals: 
-
-
         // Temporary properties for user input
         
         public string FoodName { get; set; } = "";
