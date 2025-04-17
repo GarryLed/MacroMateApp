@@ -14,31 +14,22 @@
             <RowDefinition Height="Auto"/>
             <!--Nav bar -->
             <RowDefinition Height="*" />
-            <!-- main content -->
-
+           
         </Grid.RowDefinitions>
         <!-- Main Nav -->
         <DockPanel  Background="{StaticResource NavbarBackgroundBrush}"  Height="60" Grid.Row="0">
             <!--Logo -->
             <TextBlock Text="MacroMate" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" Margin="20, 0, 10, 0"/>
 
-            <!-- Nav links -->
+            <!-- Nav links for entire app -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <!--<Button Content="Home" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToHomeCommand}"></Button>
-                <Button Content="Food Search" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToFoodSearchCommand}"></Button>
-                <Button Content="Daily Log" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToDailyLogCommand}"></Button>
-                <Button Content="Nutrient Goals" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToGoalsCommand}"></Button>
-                <Button Content="Settings" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToSettingsCommand}"></Button>-->
                 <Button Content="Home"  Command="{Binding NavigateToHomeCommand}"/>
                 <Button Content="Food Search"  Command="{Binding NavigateToFoodSearchCommand}"/>
                 <Button Content="Daily Log"  Command="{Binding NavigateToDailyLogCommand}"/>
                 <Button Content="Nutrient Goals"  Command="{Binding NavigateToGoalsCommand}"/>
-                
-
             </StackPanel>
         </DockPanel>
 
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1" />
-
     </Grid>
 </Window>

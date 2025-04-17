@@ -17,40 +17,7 @@ namespace MacroMateApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.2");
 
-            modelBuilder.Entity("MacroMateApp.Models.FoodItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Calories")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Carbs")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Fats")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("MealType")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Protein")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FoodLog");
-                });
-
+            
             modelBuilder.Entity("MacroMateApp.Models.UserGoals", b =>
                 {
                     b.Property<int>("Id")

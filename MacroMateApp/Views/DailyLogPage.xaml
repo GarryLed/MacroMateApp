@@ -42,31 +42,31 @@
 
                 <!-- Food Name -->
                 <TextBlock Text="Food Name:" FontWeight="SemiBold"/>
-                <TextBox Text="{Binding FoodName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+                <TextBox Text="{Binding LogVM.FoodName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
                 <!-- Serving size -->
                 <TextBlock Text="Serving size (g):" FontWeight="SemiBold"/>
-                <TextBox Text="{Binding ServingSize, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+                <TextBox Text="{Binding LogVM.ServingSize, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
                 <!-- Calories -->
                 <TextBlock Text="Calories (kcal):" FontWeight="SemiBold"/>
-                <TextBox Text="{Binding Calories, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+                <TextBox Text="{Binding LogVM.Calories, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
                 <!-- Protein -->
                 <TextBlock Text="Protein (g):" FontWeight="SemiBold"/>
-                <TextBox Text="{Binding Protein, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+                <TextBox Text="{Binding LogVM.Protein, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
                 <!-- Carbs -->
                 <TextBlock Text="Carbohydrates (g):" FontWeight="SemiBold"/>
-                <TextBox Text="{Binding Carbs, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+                <TextBox Text="{Binding LogVM.Carbs, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
                 <!-- Fats -->
                 <TextBlock Text="Fats (g):" FontWeight="SemiBold"/>
-                <TextBox Text="{Binding Fats, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+                <TextBox Text="{Binding LogVM.Fats, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
 
                 <!-- Meal Selection -->
                 <TextBlock Text="Meal Type:" FontWeight="SemiBold"/>
-                <ComboBox SelectedValuePath="Content" SelectedValue="{Binding SelectedMeal}" Margin="0,0,0,10">
+                <ComboBox SelectedValuePath="Content" SelectedValue="{Binding LogVM.SelectedMeal}" Margin="0,0,0,10">
                     <ComboBoxItem Content="Breakfast"/>
                     <ComboBoxItem Content="Lunch"/>
                     <ComboBoxItem Content="Dinner"/>
@@ -75,7 +75,7 @@
 
                     <!-- Add food button -->
                     <Button Content="Add Food" 
-        Command="{Binding AddItemCommand}" 
+        Command="{Binding LogVM.AddItemCommand}" 
         Background="{StaticResource CTAButtonBrush}" 
         Foreground="White"
         FontWeight="Bold"
@@ -91,7 +91,7 @@
             
             <!-- Breakfast -->
                 <TabItem Header="Breakfast" FontWeight="Bold">
-                <ListView ItemsSource="{Binding BreakfastLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
+                <ListView ItemsSource="{Binding LogVM.BreakfastLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
                                 <GridViewColumn Header="Food" Width="200">
@@ -130,7 +130,7 @@
             </TabItem>
             <!-- Lunch -->
                 <TabItem Header="Lunch" FontWeight="Bold">
-                <ListView ItemsSource="{Binding LunchLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
+                <ListView ItemsSource="{Binding LogVM.LunchLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
                                 <GridViewColumn Header="Food" Width="200">
@@ -169,7 +169,7 @@
             </TabItem>
             <!-- Dinner -->
                 <TabItem Header="Dinner" FontWeight="Bold">
-                <ListView ItemsSource="{Binding DinnerLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
+                <ListView ItemsSource="{Binding LogVM.DinnerLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
                                 <GridViewColumn Header="Food" Width="200">
@@ -211,7 +211,7 @@
 
             <!-- Snacks-->
                 <TabItem Header="Snacks" FontWeight="Bold">
-                <ListView ItemsSource="{Binding SnacksLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
+                <ListView ItemsSource="{Binding LogVM.SnacksLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
                     <ListView.View>
                         <GridView>
                                 <GridViewColumn Header="Food" Width="200">
@@ -256,17 +256,26 @@
             <TextBlock Text="Daily Totals" FontSize="20" FontWeight="Bold"  Margin="0,20,0,20"/>
 
             <TextBlock Text="Total Calories:" FontWeight="SemiBold" />
-            <TextBlock Text="{Binding DailyTotals.TotalCalories}" Margin="5"/>
+            <TextBlock Text="{Binding LogVM.DailyTotals.TotalCalories}" Margin="5"/>
 
                 <TextBlock Text="Protein (g)" FontWeight="SemiBold"/>
-            <TextBlock Text="{Binding DailyTotals.TotalProtein}" Margin="5"/>
+            <TextBlock Text="{Binding LogVM.DailyTotals.TotalProtein}" Margin="5"/>
 
                 <TextBlock Text="Carbs (g)" FontWeight="SemiBold"/>
-            <TextBlock Text="{Binding DailyTotals.TotalCarbs}" Margin="5"/>
+            <TextBlock Text="{Binding LogVM.DailyTotals.TotalCarbs}" Margin="5"/>
 
                 <TextBlock Text="Fats (g)" FontWeight="SemiBold"/>
-            <TextBlock Text="{Binding DailyTotals.TotalFats}" Margin="5"/>
-        </StackPanel>
+            <TextBlock Text="{Binding LogVM.DailyTotals.TotalFats}" Margin="5"/>
+
+                <Button Content="Clear Daily Log" 
+                Command="{Binding LogVM.ClearDailyLogCommand}" 
+                Background="{StaticResource DeleteButtonBrush}" 
+                Foreground="White"
+                FontWeight="Bold"
+                Width="250"
+                Height="35"
+                Margin="0,20,0,0"/>
+            </StackPanel>
 
 
 
@@ -284,9 +293,9 @@
                          Width="250"
                          Height="35"/>
 
-                    <Button Content="Clear Log" Margin="5"
-                     Command="{Binding ClearDailyLogCommand}"
-                         Background="{StaticResource DeleteButtonBrush}" 
+                    <Button Content="Set Goals" Margin="5"
+                     Command="{Binding NavigateToGoalsCommand}"
+                         Background="{StaticResource CTAButtonBrush}" 
                          Foreground="White"
                          FontWeight="Bold"
                          Width="250"

@@ -5,8 +5,6 @@
              xmlns:local="clr-namespace:MacroMateApp"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-       
-
       
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>

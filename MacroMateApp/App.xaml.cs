@@ -31,26 +31,7 @@ namespace MacroMateApp
             SharedFoodSearchViewModel = new FoodSearchViewModel(SharedNutritionService, SharedDailyLogViewModel);
             SharedUserGoalsViewModel = new UserGoalsViewModel(new ApplicationDbContext());
 
-            // settting default goals for testing 
-            using (var db = new ApplicationDbContext())
-            {
-                db.Database.EnsureCreated();
-
-                if (!db.UserGoals.Any())
-                {
-                    db.UserGoals.Add(new UserGoals
-                    {
-                        CaloriesGoal = 2000,
-                        ProteinGoal = 150,
-                        CarbGoal = 250,
-                        FatGoal = 70
-                    });
-                    db.SaveChanges();
-                }
-
-                var testGoal = db.UserGoals.FirstOrDefault();
-                MessageBox.Show($"Test Goal: {testGoal?.CaloriesGoal} kcal");
-            }
+            
 
         }
     }

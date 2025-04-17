@@ -53,6 +53,7 @@ namespace MacroMate.Tests.Unit.ViewModels
             };
             // Act
             vm.AddFoodItemFromSearch(food);
+
             // Assert
             Assert.That(vm.DailyTotals.TotalCalories, Is.GreaterThanOrEqualTo(95));
         }

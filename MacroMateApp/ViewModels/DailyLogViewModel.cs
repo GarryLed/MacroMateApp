@@ -109,8 +109,6 @@ namespace MacroMateApp.ViewModels
         // Add food item 
         public void AddFoodItem()
         {
-            //if (string.IsNullOrWhiteSpace(FoodName)) return;
-
            
             var newFoodItem = new FoodItem
             {
@@ -124,12 +122,6 @@ namespace MacroMateApp.ViewModels
 
       
             };
-
-            // log food to database 
-           // using (var db = new ApplicationDbContext())
-            //{
-                
-            //}
 
             switch (SelectedMeal)
             {
@@ -173,11 +165,6 @@ namespace MacroMateApp.ViewModels
 
             UpdateDailyTotals();
         }
-
-
-
-        // Update food item 
-
 
         // Update Daily totals 
         private void UpdateDailyTotals()

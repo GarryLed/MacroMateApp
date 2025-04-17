@@ -1,18 +1,7 @@
-﻿using MacroMateApp.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using MacroMateApp.Views;
+using MacroMateApp.ViewModels;
 
 namespace MacroMateApp.Views
 {
@@ -21,12 +10,31 @@ namespace MacroMateApp.Views
     /// </summary>
     public partial class DailyLogPage : Page
     {
+        public ICommand NavigateToFoodSearchCommand { get; }
+        public ICommand NavigateToGoalsCommand { get; }
+
         public DailyLogPage()
         {
             InitializeComponent();
-          //DataContext = new DailyLogViewModel(); // Bind the DailyLogViewModel to the page 
-           DataContext = App.SharedDailyLogViewModel;
-           // DataContext = App.SharedFoodSearchViewModel;
+
+            // Setup navigation commands
+            NavigateToFoodSearchCommand = new RelayCommand(() =>
+            {
+                NavigationService?.Navigate(new FoodSearchPage());
+            });
+
+            NavigateToGoalsCommand = new RelayCommand(() =>
+            {
+                NavigationService?.Navigate(new GoalsPage());
+            });
+
+            // Combine navigation + log view model into composite DataContext
+            DataContext = new
+            {
+                NavigateToFoodSearchCommand,
+                NavigateToGoalsCommand,
+                LogVM = App.SharedDailyLogViewModel
+            };
         }
     }
 }

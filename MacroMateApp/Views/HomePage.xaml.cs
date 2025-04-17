@@ -23,13 +23,21 @@ namespace MacroMateApp.Views
     {
         public HomePage()
         {
-
-
             InitializeComponent();
-            DataContext = new HomePageViewModel
+
+            // Set DataContext with the expected properties
+            DataContext = new
             {
                 GoalsVM = App.SharedUserGoalsViewModel,
-                LogVM = App.SharedDailyLogViewModel
+                LogVM = App.SharedDailyLogViewModel,
+                NavigateFoodSearchCommand = new RelayCommand(() =>
+                {
+                    NavigationService?.Navigate(new FoodSearchPage());
+                }),
+                NavigateDailyLogCommand = new RelayCommand(() =>
+                {
+                    NavigationService?.Navigate(new DailyLogPage());
+                })
             };
         }
     }

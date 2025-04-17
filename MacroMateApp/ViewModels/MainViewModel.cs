@@ -109,21 +109,6 @@ namespace MacroMateApp.ViewModels
 
         // store and track daily totals
         public DailyTotals DailyTotals { get; set; } // composition relationship 
-
-        
-        // Methods 
-        // search method 
-        private void SearchFoodDatabase()
-        {
-            // clear the collection before each search
-            FoodSearchResults.Clear(); 
-
-            // add food items to collection 
-
-        }
-
-
-        
-        
+   
     }
 }

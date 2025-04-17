@@ -16,24 +16,7 @@ namespace MacroMateApp.Migrations
                 table: "UserGoals",
                 newName: "CaloriesGoal");
 
-            migrationBuilder.CreateTable(
-                name: "FoodLog",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Calories = table.Column<int>(type: "INTEGER", nullable: false),
-                    Protein = table.Column<int>(type: "INTEGER", nullable: false),
-                    Carbs = table.Column<int>(type: "INTEGER", nullable: false),
-                    Fats = table.Column<int>(type: "INTEGER", nullable: false),
-                    MealType = table.Column<string>(type: "TEXT", nullable: false),
-                    Date = table.Column<DateTime>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FoodLog", x => x.Id);
-                });
+          
         }
 
         /// <inheritdoc />
