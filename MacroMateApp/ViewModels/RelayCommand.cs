@@ -62,6 +62,7 @@ namespace MacroMateApp.ViewModels
 
     } // end of RelayCommand class for commands witout arguments 
 
+    // Generic RelayCommand for commands with parameters
     public class RelayCommand<T> : ICommand
     {
         private readonly Action<T> _execute;
@@ -86,8 +87,7 @@ namespace MacroMateApp.ViewModels
             }
         }
 
-       
-
+        // can execute changed event:
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }

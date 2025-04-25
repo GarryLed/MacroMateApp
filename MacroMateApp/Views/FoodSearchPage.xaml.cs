@@ -24,9 +24,9 @@ namespace MacroMateApp.Views
         public FoodSearchPage()
         {
             InitializeComponent();
-            //DataContext = new FoodSearchViewModel();
-           // DataContext = App.SharedFoodSearchViewModel;
-           // DataContext = new FoodSearchViewModel(App.SharedDailyLogViewModel);
+
+            // using the Shared NutritionService and DailyLogViewModel to create a new instance of the FoodSearchViewModel for the data context
+            // this allows for Dependency Injection and decouples the view model from the service
             DataContext = new FoodSearchViewModel(App.SharedNutritionService, App.SharedDailyLogViewModel);
 
         }

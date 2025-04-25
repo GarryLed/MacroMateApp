@@ -10,6 +10,7 @@ namespace MacroMateApp.Views
     /// </summary>
     public partial class DailyLogPage : Page
     {
+        // Commands for navigation
         public ICommand NavigateToFoodSearchCommand { get; }
         public ICommand NavigateToGoalsCommand { get; }
 
@@ -17,18 +18,18 @@ namespace MacroMateApp.Views
         {
             InitializeComponent();
 
-            // Setup navigation commands
+            // Setup navigation command for food search and goals
             NavigateToFoodSearchCommand = new RelayCommand(() =>
             {
-                NavigationService?.Navigate(new FoodSearchPage());
+                NavigationService?.Navigate(new FoodSearchPage()); // food search page
             });
 
             NavigateToGoalsCommand = new RelayCommand(() =>
             {
-                NavigationService?.Navigate(new GoalsPage());
+                NavigationService?.Navigate(new GoalsPage()); // goals page
             });
 
-            // Combine navigation + log view model into composite DataContext
+            // Combine navigation and log view model into composite DataContext object
             DataContext = new
             {
                 NavigateToFoodSearchCommand,

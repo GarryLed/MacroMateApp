@@ -15,10 +15,10 @@ namespace MacroMateApp.ViewModels
     // a class to handle the business logic for the DailyLogs 
     public class DailyLogViewModel : INotifyPropertyChanged
     {
+        // PropertyChanged event for data binding
         public event PropertyChangedEventHandler? PropertyChanged;
 
         // method to notify the UI when a property changes 
-
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -61,42 +61,42 @@ namespace MacroMateApp.ViewModels
         // constructor 
         public DailyLogViewModel()
         {
-
+            /*
             // Test data for Breakfast 
             BreakfastLog = new ObservableCollection<FoodItem>
             {
-                new FoodItem {Name = "Oatmeal", Calories = 150, Protein = 10, Carbs = 10, Fats = 4 },
-                new FoodItem {Name = "Milk", Calories = 110, Protein = 6, Carbs = 3, Fats = 3}
+                //new FoodItem {Name = "Oatmeal", Calories = 150, Protein = 10, Carbs = 10, Fats = 4 },
+               // new FoodItem {Name = "Milk", Calories = 110, Protein = 6, Carbs = 3, Fats = 3}
 
             };
 
             // Test data for Lunch 
             LunchLog = new ObservableCollection<FoodItem>
             {
-                new FoodItem { Name = "Grilled Chicken", Calories = 200, Protein = 30, Carbs = 0, Fats = 5 },
-                new FoodItem { Name = "Brown Rice", Calories = 216, Protein = 5, Carbs = 45, Fats = 2 }
+                //new FoodItem { Name = "Grilled Chicken", Calories = 200, Protein = 30, Carbs = 0, Fats = 5 },
+                //new FoodItem { Name = "Brown Rice", Calories = 216, Protein = 5, Carbs = 45, Fats = 2 }
             };
 
             // Test data for Dinner
             DinnerLog = new ObservableCollection<FoodItem>
             {
-                new FoodItem { Name = "Salmon", Calories = 250, Protein = 22, Carbs = 0, Fats = 15 },
-                new FoodItem { Name = "Steamed Broccoli", Calories = 55, Protein = 4, Carbs = 11, Fats = 0 }
+                //new FoodItem { Name = "Salmon", Calories = 250, Protein = 22, Carbs = 0, Fats = 15 },
+                //new FoodItem { Name = "Steamed Broccoli", Calories = 55, Protein = 4, Carbs = 11, Fats = 0 }
             };
 
             // Test data for Snacks
             SnacksLog = new ObservableCollection<FoodItem>
             {
-                new FoodItem { Name = "Greek Yogurt", Calories = 100, Protein = 10, Carbs = 6, Fats = 0 },
-                new FoodItem { Name = "Almonds", Calories = 170, Protein = 6, Carbs = 6, Fats = 15 }
+               // new FoodItem { Name = "Greek Yogurt", Calories = 100, Protein = 10, Carbs = 6, Fats = 0 },
+               // new FoodItem { Name = "Almonds", Calories = 170, Protein = 6, Carbs = 6, Fats = 15 }
             };
 
+            */
             UpdateDailyTotals();
 
             // Binding commands for deleting food items 
 
             AddItemCommand = new RelayCommand(AddFoodItem);
-
 
             DeleteItemCommand = new RelayCommand<FoodItem>(DeleteItem);
 
@@ -106,7 +106,7 @@ namespace MacroMateApp.ViewModels
 
         // methods 
 
-        // Add food item 
+        // Manaully add food item 
         public void AddFoodItem()
         {
            

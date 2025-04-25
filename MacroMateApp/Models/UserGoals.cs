@@ -6,7 +6,7 @@ namespace MacroMateApp.Models
 {
     public class UserGoals : INotifyPropertyChanged
     {
-        [Key] // Primary Key for database 
+        [Key] // Primary Key for database  
         public int Id { get; set; }
 
         private double _caloriesGoal;
@@ -65,7 +65,8 @@ namespace MacroMateApp.Models
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        // PropertyChanged event for data binding  
+        public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }

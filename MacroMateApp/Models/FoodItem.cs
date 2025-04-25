@@ -13,7 +13,7 @@ namespace MacroMateApp.Models
     {
         // properties 
        
-        public int FoodId { get; set; } // primary key 
+        public int FoodId { get; set; } 
 
         public string Name { get; set; } = "";// Food Item name is required for 
 

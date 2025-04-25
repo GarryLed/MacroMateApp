@@ -21,11 +21,14 @@ namespace MacroMateApp.ViewModels
             }
         }
 
+        // Commands for saving and clearing goals
         public ICommand SaveGoalsCommand { get; }
         public ICommand ClearGoalsCommand { get; }
 
+        // DB context for accessing the database
         private readonly ApplicationDbContext _db;
 
+        // Constructor that initializes the ViewModel and sets up commands
         public UserGoalsViewModel(ApplicationDbContext db)
         {
             _db = db; // Dependency injection for the database context
@@ -89,7 +92,7 @@ namespace MacroMateApp.ViewModels
 
         // Notify UI of property changes
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }

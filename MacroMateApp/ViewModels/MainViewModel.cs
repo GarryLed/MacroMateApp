@@ -91,6 +91,7 @@ namespace MacroMateApp.ViewModels
         // handling the data and the users selections 
 
         // collection to store the food items from the search results using the API 
+        /*
         public ObservableCollection<FoodItem> FoodSearchResults { get; set; }   
 
 
@@ -109,6 +110,6 @@ namespace MacroMateApp.ViewModels
 
         // store and track daily totals
         public DailyTotals DailyTotals { get; set; } // composition relationship 
-   
+   */
     }
 }

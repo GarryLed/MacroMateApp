@@ -9,7 +9,7 @@ namespace MacroMateApp.Models
 {
     public class DailyTotals : INotifyPropertyChanged
     {
-
+        // PropertyChanged event for data binding
         public event PropertyChangedEventHandler? PropertyChanged; 
 
         protected void OnPropertyChanged(string propertyName)
