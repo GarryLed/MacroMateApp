@@ -101,6 +101,8 @@ namespace MacroMateApp.ViewModels
             };
 
             _dailyLogViewModel.AddFoodItemFromSearch(newFoodItem);
+
+            _dailyLogViewModel.SaveDailyLog(); // Save the daily log to the database
         }
 
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)

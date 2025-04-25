@@ -11,6 +11,9 @@ namespace MacroMateApp.Data
     public class ApplicationDbContext : DbContext
     {
         public DbSet<UserGoals> UserGoals { get; set; } // will map user goals to table in the database 
+        public DbSet<FoodItem> FoodItems { get; set; } // will map food items to table in the database
+
+        public DbSet<DailyLog> DailyLogs { get; set; } // will map daily logs to table in the database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

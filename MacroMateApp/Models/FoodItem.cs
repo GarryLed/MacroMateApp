@@ -12,7 +12,8 @@ namespace MacroMateApp.Models
     public class FoodItem
     {
         // properties 
-       
+
+        [Key] // primary key
         public int FoodId { get; set; } 
 
         public string Name { get; set; } = "";// Food Item name is required for 
@@ -30,6 +31,10 @@ namespace MacroMateApp.Models
         public DateTime Date { get; set; } = DateTime.Today; // Todays date for daily tracking 
 
         public string ImageUrl { get; set; } = "";// url to the food items image 
+
+        public int DailyLogId { get; set; } // FK
+        public virtual DailyLog DailyLogs { get; set; } // Navigation property
+
 
 
 

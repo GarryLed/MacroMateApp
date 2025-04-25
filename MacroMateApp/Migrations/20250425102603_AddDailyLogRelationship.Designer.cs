@@ -3,6 +3,7 @@ using System;
 using MacroMateApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MacroMateApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250425102603_AddDailyLogRelationship")]
+    partial class AddDailyLogRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.2");
@@ -28,7 +31,7 @@ namespace MacroMateApp.Migrations
 
                     b.HasKey("DailyLogId");
 
-                    b.ToTable("DailyLogs");
+                    b.ToTable("DailyLog");
                 });
 
             modelBuilder.Entity("MacroMateApp.Models.FoodItem", b =>
@@ -103,13 +106,13 @@ namespace MacroMateApp.Migrations
 
             modelBuilder.Entity("MacroMateApp.Models.FoodItem", b =>
                 {
-                    b.HasOne("MacroMateApp.Models.DailyLog", "DailyLogs")
+                    b.HasOne("MacroMateApp.Models.DailyLog", "DailyLog")
                         .WithMany("FoodItems")
                         .HasForeignKey("DailyLogId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DailyLogs");
+                    b.Navigation("DailyLog");
                 });
 
             modelBuilder.Entity("MacroMateApp.Models.DailyLog", b =>
