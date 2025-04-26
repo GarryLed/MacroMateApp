@@ -12,8 +12,8 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid Margin="20" Background="{StaticResource AppBackgroundBrush}">
             <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -91,7 +91,7 @@
             
             <!-- Breakfast -->
                 <TabItem Header="Breakfast" FontWeight="Bold">
-                <ListView ItemsSource="{Binding LogVM.BreakfastLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
+                <ListView ItemsSource="{Binding LogVM.BreakfastLog}" Margin="5" >
                     <ListView.View>
                         <GridView>
                                 <GridViewColumn Header="Food" Width="200">
@@ -129,7 +129,7 @@
             </TabItem>
             <!-- Lunch -->
                 <TabItem Header="Lunch" FontWeight="Bold">
-                <ListView ItemsSource="{Binding LogVM.LunchLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
+                <ListView ItemsSource="{Binding LogVM.LunchLog}" Margin="5" >
                     <ListView.View>
                         <GridView>
                                 <GridViewColumn Header="Food" Width="200">
@@ -152,11 +152,12 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                            <Button Content="Delete" Command="{Binding DataContext.LogVM.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                Background="{StaticResource DeleteButtonBrush}" 
-                                                Foreground="White"
-                                                FontWeight="Bold"
-                                                Height="35">
+                                            <Button Content="Delete" 
+                                                    Command="{Binding DataContext.LogVM.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                    Background="{StaticResource DeleteButtonBrush}" 
+                                                    Foreground="White"
+                                                    FontWeight="Bold"
+                                                    Height="35">
                                             </Button>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -168,7 +169,7 @@
             </TabItem>
             <!-- Dinner -->
                 <TabItem Header="Dinner" FontWeight="Bold">
-                <ListView ItemsSource="{Binding LogVM.DinnerLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
+                <ListView ItemsSource="{Binding LogVM.DinnerLog}" Margin="5" >
                     <ListView.View>
                         <GridView>
                                 <GridViewColumn Header="Food" Width="200">
@@ -191,7 +192,8 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                            <Button Content="Delete" Command="{Binding LogVM.DeleteItemCommand}"
+                                            <Button Content="Delete" 
+                                                Command="{Binding DataContext.LogVM.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
                                                 Background="{StaticResource DeleteButtonBrush}" 
                                                 Foreground="White"
                                                 FontWeight="Bold"
@@ -210,7 +212,7 @@
 
             <!-- Snacks-->
                 <TabItem Header="Snacks" FontWeight="Bold">
-                <ListView ItemsSource="{Binding LogVM.SnacksLog}" Margin="5" SelectedItem="{Binding SelectedItem}">
+                <ListView ItemsSource="{Binding LogVM.SnacksLog}" Margin="5">
                     <ListView.View>
                         <GridView>
                                 <GridViewColumn Header="Food" Width="200">
@@ -233,11 +235,12 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                            <Button Content="Delete" Command="{Binding LogVM.DeleteItemCommand}"
-                                                Background="{StaticResource DeleteButtonBrush}" 
-                                                Foreground="White"
-                                                FontWeight="Bold"
-                                                Height="35">
+                                            <Button Content="Delete" 
+                                                    Command="{Binding DataContext.LogVM.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                    Background="{StaticResource DeleteButtonBrush}" 
+                                                    Foreground="White"
+                                                    FontWeight="Bold"
+                                                    Height="35">
                                             </Button>
                                         </DataTemplate>
                                 </GridViewColumn.CellTemplate>

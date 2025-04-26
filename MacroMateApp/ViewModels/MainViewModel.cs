@@ -37,7 +37,7 @@ namespace MacroMateApp.ViewModels
             NavigateToFoodSearchCommand = new RelayCommand(NavigateToFoodSearchPage);
             NavigateToDailyLogCommand = new RelayCommand(NavigateToDailyLogPage);
             NavigateToGoalsCommand = new RelayCommand(NavigateToGoalsPage);
-            NavigateToSettingsCommand = new RelayCommand(NavigateToSettingsPage);
+            
         }
         // Nav methods 
 
@@ -65,12 +65,6 @@ namespace MacroMateApp.ViewModels
             NavigateToPage(new GoalsPage());
         }
 
-        // navigate to settings page
-        private void NavigateToSettingsPage()
-        {
-            NavigateToPage(new SettingsPage());
-        }
-
         // 
         private void NavigateToPage(Page page)
         {
@@ -87,29 +81,6 @@ namespace MacroMateApp.ViewModels
         }
 
         #endregion
-        // this class is bound to the MainWindow.xaml 
-        // handling the data and the users selections 
-
-        // collection to store the food items from the search results using the API 
-        /*
-        public ObservableCollection<FoodItem> FoodSearchResults { get; set; }   
-
-
-        // collections to store logged food items for each category 
-        public ObservableCollection<FoodItem> BreakfastLog {  get; set; } // stores logged food for breakfast 
-        public ObservableCollection<FoodItem>LunchLog { get; set; } // stores logged food for lunch                                                             
-        public ObservableCollection<FoodItem>DinnerLog { get; set; } // stores logged food for dinner 
-        public ObservableCollection<FoodItem>SnacksLog { get; set; } // stores logged food for snacks 
-
-        //store the users selected meal category 
-        public string SelectedMealCategory { get; set; } // wll be bound to wpf combo box item 
-
-        // store the users daily goals 
-        public UserGoals Goals { get; set; }  // Composition relationship 
-
-
-        // store and track daily totals
-        public DailyTotals DailyTotals { get; set; } // composition relationship 
-   */
+       
     }
 }

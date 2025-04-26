@@ -48,6 +48,7 @@ namespace MacroMateApp.ViewModels
 
         // Temporary properties for user input
         
+
         public string FoodName { get; set; } = "";
         public double Calories { get; set; } = 0;
         public double Protein { get; set; } = 0;
@@ -156,7 +157,6 @@ namespace MacroMateApp.ViewModels
         // delete a food item 
         private void DeleteItem(FoodItem item)
         {
-            Console.WriteLine("DeleteItem Command Triggered!"); // for testing delete button 
 
             if (item == null)
                 return;
@@ -191,9 +191,6 @@ namespace MacroMateApp.ViewModels
         // will remove all food items from collections 
         private void ClearDailyLog()
         {
-
-           
-
             // clear all food items from the collections
             BreakfastLog.Clear();
             LunchLog.Clear();
@@ -206,7 +203,7 @@ namespace MacroMateApp.ViewModels
             UpdateDailyTotals();
         }
 
-        // Database Methods 
+       
         // Load DailyLog from database (by date)
         public void LoadDailyLog(DateTime date)
         {
@@ -286,9 +283,5 @@ namespace MacroMateApp.ViewModels
                 }
             }
         }
-
-
-
-
     }
 }
