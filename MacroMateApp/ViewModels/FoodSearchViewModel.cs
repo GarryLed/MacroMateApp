@@ -22,6 +22,7 @@ namespace MacroMateApp.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
         private readonly INutritionApiService _nutritionApiService;
 
+        // Constructor that uses dependency injection to get the NutritionApiService and DailyLogViewModel
         public FoodSearchViewModel(INutritionApiService nutritionService, DailyLogViewModel dailyLogViewModel)
         {
             _nutritionApiService = nutritionService ?? throw new ArgumentNullException(nameof(nutritionService)); 
@@ -32,6 +33,7 @@ namespace MacroMateApp.ViewModels
             AddToLogCommand = new RelayCommand(AddSelectedFoodToLog, () => SelectedFoodItem != null);
         }
 
+        // Properties 
         public string SearchQuery
         {
             get => _searchQuery;
@@ -42,6 +44,7 @@ namespace MacroMateApp.ViewModels
             }
         }
 
+        // ObservableCollection to hold the search results
         public ObservableCollection<FoodItem> FoodResults { get; }
 
         public FoodItem SelectedFoodItem
@@ -65,10 +68,11 @@ namespace MacroMateApp.ViewModels
             }
         }
 
+        // Commands for searching and adding food items to the log
         public ICommand SearchCommand { get; }
-
         public ICommand AddToLogCommand { get; private set; }
 
+        // Method to search for food items using the NutritionApiService
         private async Task SearchFood()
         {
             if (string.IsNullOrWhiteSpace(SearchQuery))
@@ -83,6 +87,7 @@ namespace MacroMateApp.ViewModels
             }
         }
 
+        // Method to add the selected food item to the daily log
         private void AddSelectedFoodToLog()
         {
             if (SelectedFoodItem == null)
@@ -100,7 +105,7 @@ namespace MacroMateApp.ViewModels
                 ImageUrl = FoodResults[0].ImageUrl
             };
 
-            _dailyLogViewModel.AddFoodItemFromSearch(newFoodItem);
+            _dailyLogViewModel.AddFoodItemFromSearch(newFoodItem); // Add the food item to the daily log
 
             _dailyLogViewModel.SaveDailyLog(); // Save the daily log to the database
         }

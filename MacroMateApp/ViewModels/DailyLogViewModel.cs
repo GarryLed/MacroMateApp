@@ -48,7 +48,6 @@ namespace MacroMateApp.ViewModels
 
         // Temporary properties for user input
         
-
         public string FoodName { get; set; } = "";
         public double Calories { get; set; } = 0;
         public double Protein { get; set; } = 0;
@@ -241,22 +240,23 @@ namespace MacroMateApp.ViewModels
         {
           
             var existingLog = _db.DailyLogs
-                                      .Include(d => d.FoodItems)
+                                      .Include(d => d.FoodItems) // the include method here loads and includes the related food items 
                                       .FirstOrDefault(d => d.Date == Date);
-
+            // clear the existing log if it exists
             if (existingLog != null)
             {
-                _db.FoodItems.RemoveRange(existingLog.FoodItems);
-                _db.DailyLogs.Remove(existingLog);
+                _db.FoodItems.RemoveRange(existingLog.FoodItems); // delete the related food items first 
+                _db.DailyLogs.Remove(existingLog); // delete the existing daily log 
                 _db.SaveChanges();
             }
 
-            var dailyLog = new DailyLog { Date = Date };
-            var allItems = BreakfastLog.Concat(LunchLog).Concat(DinnerLog).Concat(SnacksLog).ToList();
+            var dailyLog = new DailyLog { Date = Date }; // create a new daily log
+            var allItems = BreakfastLog.Concat(LunchLog).Concat(DinnerLog).Concat(SnacksLog).ToList(); // combine all food items into a single list
 
+            // loop through all food items and add them to the daily log
             foreach (var item in allItems)
             {
-                item.DailyLogs = dailyLog;
+                item.DailyLogs = dailyLog; // link the food item to the daily log 
                 dailyLog.FoodItems.Add(item);
             }
 

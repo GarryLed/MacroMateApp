@@ -8,7 +8,8 @@ namespace MacroMateApp.ViewModels
 {
     class HomePageViewModel
     {
-        // Use composite view model pattern to combine the user goals and daily log view models
+        // Using composite view model pattern to combine the user goals and daily log view models
+        // so we have access to data accross the pages 
         public UserGoalsViewModel GoalsVM { get; set; }
         public DailyLogViewModel LogVM { get; set; }
 
