@@ -156,11 +156,33 @@ namespace MacroMateApp.ViewModels
         // delete a food item 
         private void DeleteItem(FoodItem item)
         {
-            BreakfastLog.Remove(item); // removes item from BreakfastLog 
-            LunchLog.Remove(item); // removes item form LuchLog 
-            DinnerLog.Remove(item); // removes item form DinnerLog 
-            SnacksLog.Remove(item); // removes item from SnacksLog 
+            Console.WriteLine("DeleteItem Command Triggered!"); // for testing delete button 
 
+            if (item == null)
+                return;
+
+            // Remove food item from UI ObservableCollection
+            switch (item.MealType)
+            {
+                case "Breakfast":
+                    BreakfastLog.Remove(item);
+                    break;
+                case "Lunch":
+                    LunchLog.Remove(item);
+                    break;
+                case "Dinner":
+                    DinnerLog.Remove(item);
+                    break;
+                case "Snacks":
+                    SnacksLog.Remove(item);
+                    break;
+            }
+
+            //  Remove food item from the Database
+            _db.FoodItems.Remove(item);
+            _db.SaveChanges();
+
+            
             // notify the ui to update total 
             UpdateDailyTotals();
         }
@@ -169,14 +191,16 @@ namespace MacroMateApp.ViewModels
         // will remove all food items from collections 
         private void ClearDailyLog()
         {
-           // DeleteDailyLog(DateTime.Today); // delete the daily log from the database
 
+           
 
             // clear all food items from the collections
             BreakfastLog.Clear();
             LunchLog.Clear();
             DinnerLog.Clear();
             SnacksLog.Clear();
+
+            DeleteDailyLog(DateTime.Today); // delete the daily log from the database
 
             // notify the ui to update total 
             UpdateDailyTotals();
@@ -218,7 +242,7 @@ namespace MacroMateApp.ViewModels
         // Save DailyLog and all food items to the DB
         public void SaveDailyLog()
         {
-            // Remove existing DailyLog (if any)
+          
             var existingLog = _db.DailyLogs
                                       .Include(d => d.FoodItems)
                                       .FirstOrDefault(d => d.Date == Date);
@@ -243,6 +267,7 @@ namespace MacroMateApp.ViewModels
             _db.SaveChanges();
         }
 
+       
         // Delete DailyLog from the database
         public void DeleteDailyLog(DateTime date)
         {

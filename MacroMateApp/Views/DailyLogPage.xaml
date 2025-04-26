@@ -112,17 +112,16 @@
                             <GridViewColumn Header="Delete Item" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
-                                        <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                            <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}"
+                                        
+                                        <Button Content="Delete" 
+                                                Command="{Binding DataContext.LogVM.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                CommandParameter="{Binding}"
                                                 Background="{StaticResource DeleteButtonBrush}" 
                                                 Foreground="White"
                                                 FontWeight="Bold"
-                                                Height="35">
-                                            </Button>
-                                        </DataTemplate>
+                                                Height="35" />
+                                    </DataTemplate>
                                 </GridViewColumn.CellTemplate>
-                                
                             </GridViewColumn>
                         </GridView>
                     </ListView.View>
@@ -153,7 +152,7 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                            <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}"
+                                            <Button Content="Delete" Command="{Binding DataContext.LogVM.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=Page}}"
                                                 Background="{StaticResource DeleteButtonBrush}" 
                                                 Foreground="White"
                                                 FontWeight="Bold"
@@ -192,7 +191,7 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                            <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}"
+                                            <Button Content="Delete" Command="{Binding LogVM.DeleteItemCommand}"
                                                 Background="{StaticResource DeleteButtonBrush}" 
                                                 Foreground="White"
                                                 FontWeight="Bold"
@@ -234,7 +233,7 @@
                                     <DataTemplate>
                                         <!-- Using TabControl and AncestorType to find the nearest TabControl and then accesses its DataContext-->
                                         <!-- CommandParameter uses the current food items as a parameter when the button is clicked -->
-                                            <Button Content="Delete" Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType=TabControl}}" CommandParameter="{Binding}"
+                                            <Button Content="Delete" Command="{Binding LogVM.DeleteItemCommand}"
                                                 Background="{StaticResource DeleteButtonBrush}" 
                                                 Foreground="White"
                                                 FontWeight="Bold"
